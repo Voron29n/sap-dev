@@ -9,11 +9,19 @@
     <jcr:content
             jcr:primaryType="cq:PageContent"
             sling:resourceType="developers/components/structure/sap_dev_page">
+        <nav
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="developers/components/totemplate/navbar">
+        </nav>
         <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/foundation/components/parsys"
                 components="[developers/components/.*]">
         </par>
+        <footer
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="developers/components/totemplate/footer">
+        </footer>
     </jcr:content>
 </jcr:root>
 

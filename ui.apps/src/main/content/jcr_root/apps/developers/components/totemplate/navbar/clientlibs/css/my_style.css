@@ -1,0 +1,375 @@
+.nav-pills > .active > a > [class^="icon-"],
+.nav-pills > .active > a > [class*=" icon-"],
+.nav-list > .active > a > [class^="icon-"],
+.nav-list > .active > a > [class*=" icon-"],
+.navbar-inverse .nav > .active > a > [class^="icon-"],
+.navbar-inverse .nav > .active > a > [class*=" icon-"],
+.dropdown-menu > li > a:hover > [class^="icon-"],
+.dropdown-menu > li > a:hover > [class*=" icon-"],
+.dropdown-menu > .active > a > [class^="icon-"],
+.dropdown-menu > .active > a > [class*=" icon-"],
+.dropdown-submenu:hover > a > [class^="icon-"],
+.dropdown-submenu:hover > a > [class*=" icon-"] {
+    background-image: none;
+}
+
+.btn [class^="icon-"],
+.nav [class^="icon-"],
+.btn [class*=" icon-"],
+.nav [class*=" icon-"] {
+    display: inline;
+}
+
+.btn [class^="icon-"].icon-large,
+.nav [class^="icon-"].icon-large,
+.btn [class*=" icon-"].icon-large,
+.nav [class*=" icon-"].icon-large {
+    line-height: 0.9em;
+}
+
+.btn [class^="icon-"].icon-spin,
+.nav [class^="icon-"].icon-spin,
+.btn [class*=" icon-"].icon-spin,
+.nav [class*=" icon-"].icon-spin {
+    display: inline-block;
+}
+
+.nav-tabs [class^="icon-"],
+.nav-pills [class^="icon-"],
+.nav-tabs [class*=" icon-"],
+.nav-pills [class*=" icon-"] {
+}
+
+.nav-tabs [class^="icon-"],
+.nav-pills [class^="icon-"],
+.nav-tabs [class*=" icon-"],
+.nav-pills [class*=" icon-"],
+.nav-tabs [class^="icon-"].icon-large,
+.nav-pills [class^="icon-"].icon-large,
+.nav-tabs [class*=" icon-"].icon-large,
+.nav-pills [class*=" icon-"].icon-large {
+    line-height: 0.9em;
+}
+
+li [class^="icon-"].icon-large,
+.nav li [class^="icon-"].icon-large,
+li [class*=" icon-"].icon-large,
+.nav li [class*=" icon-"].icon-large {
+    width: 1.5625em;
+}
+
+
+.navbar .btn-navbar {
+    width: 40px;
+    height: 40px;
+}
+.navbar .nav > li > .dropdown-menu:before {
+    left: auto;
+    right: 20px;
+}
+.navbar .nav > li > .dropdown-menu:after {
+    left: auto;
+    right: 21px;
+}
+.container .navbar {
+    margin-top: 40px;
+}
+.container .navbar .navbar-inner {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    background: #ffffff;
+}
+.container .navbar .brand {
+    color: #4d4d4d;
+    font-size: 16px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: 30px;
+    top: 0;
+}
+.container .navbar .nav > li {
+    line-height: 30px;
+}
+.container .navbar .nav > li > a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.container .navbar .nav > .active > a,
+.container .navbar .nav > .active > a:hover,
+.container .navbar .nav > .active > a:focus {
+    background: #fdb813;
+    color: #333333;
+    text-shadow: none;
+}
+
+.navbar {
+    margin-bottom: 10px;
+}
+
+.navbar-inner,
+.navbar-fixed-bottom .navbar-inner {
+    padding-right: 0;
+    padding-left: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.navbar-inverse .navbar-inner {
+    background: #000000;
+}
+.navbar-inverse .brand {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    color: #f0eeee;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(0, 0, 0, 0);
+}
+.navbar-inverse .brand:hover,
+.navbar-inverse .brand:active,
+.navbar-inverse .brand:focus {
+    color: #ffffff;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.4), 0 0 5px rgba(118, 220, 255, 0.8);
+}
+.navbar-inverse .nav > li > a {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    background-image: url("../img/bg-gradient-white.png?v=1");
+    background-repeat: repeat-x;
+    background-position: 0 -51px;
+    color: #ffffff;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+.navbar-inverse .nav > li > a:hover,
+.navbar-inverse .nav > li > a:active,
+.navbar-inverse .nav > li > a:focus {
+    background-position: 0 0px;
+    color: #f0eeee;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+.navbar-inverse .nav > li.active a {
+    color: #fdb813;
+}
+.navbar-inverse .nav > li.active a:hover,
+.navbar-inverse .nav > li.active a:active,
+.navbar-inverse .nav > li.active a:focus {
+    color: #fdb813;
+}
+.nav-list {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #f0eeee;
+    margin-bottom: 40px;
+    padding: 7px 0;
+    width: 100%;
+}
+.nav-list li {
+    font-family: "BentonSansBold", Arial, Helvetica, sans-serif;
+    font-size: 13.6px;
+    font-weight: normal;
+    line-height: 16px;
+    border-top: 1px solid #f0eeee;
+    margin: 0;
+    padding: 0;
+}
+.nav-list li a {
+    color: #666666;
+    margin: 0;
+    padding: 7px 10px 7px 20px;
+}
+.nav-list li a:hover,
+.nav-list li a:active,
+.nav-list li a:focus {
+    background: #f9f9f9;
+}
+.nav-list li.active a {
+    background: #fdb813;
+    color: #333333;
+    text-shadow: none;
+}
+.nav-list li.active a:hover,
+.nav-list li.active a:active,
+.nav-list li.active a:focus {
+    text-shadow: none;
+    color: #000000;
+    background: #f4ad02;
+}
+.nav-list li:first-child {
+    border-top: none;
+}
+.nav-list li.nav-header {
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0;
+}
+.nav-list li.nav-header a {
+    padding-left: 10px;
+}
+
+.sidebar-nav {
+    padding: 9px 0;
+}
+.sidebar-nav.affix {
+    top: 60px;
+}
+
+@media (min-width: 768px) {
+    .navbar-fixed-top .cover {
+        border: none;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+    
+    .navbar .container {
+        width: 728px;
+    }
+    .navbar .divider-vertical {
+        height: 50px;
+        margin: 0;
+        border-right: none;
+        border-left: 1px solid #1a1a1a;
+    }
+    .navbar .nav {
+        font-family: "BentonSansBold", Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 20px;
+    }
+    .navbar .nav .dropdown-toggle .caret {
+        margin-top: 13px;
+    }
+    .navbar .nav > li {
+        line-height: 30px;
+    }
+    .navbar .nav > li > a {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .nav-list {
+        width: 166px;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        border: none;
+    }
+    .nav-list li {
+        font-family: "BentonSansBold", Arial, Helvetica, sans-serif;
+        font-size: 13.6px;
+        font-weight: normal;
+        line-height: 16px;
+        border-top: none;
+    }
+    .nav-list li a {
+        padding-left: 10px;
+    }
+    .nav-list li.nav-header {
+        font-size: 12px;
+        font-weight: normal;
+        margin: 10px 0 0 0;
+        border-bottom: 1px solid #f0eeee;
+    }   
+}
+
+@media (min-width: 980px) {
+    .navbar .container {
+        width: 940px;
+    }
+    .nav-list {
+        width: 218px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .navbar .container {
+        width: 1160px;
+    }
+    .nav-list {
+        width: 250px;
+    }
+}
+@media (max-width: 979px) {
+    .navbar-fixed-top {
+        margin-bottom: 0;
+    }
+    .navbar .pull-right {
+        float: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-fixed-top .cover {
+        display: none;
+    }
+    .nav-list.affix {
+        position: static;
+    }
+}
+
+
+.btn {
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    font-family: "BentonSansBold", Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 20px;
+    background: #808080;
+    border: none;
+    color: #ffffff;
+    margin-bottom: 5px;
+    padding: 10px 20px;
+    text-shadow: none;
+    text-transform: uppercase;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn.active {
+    background: #5a5a5a;
+    color: #ffffff;
+}
+
+.brand {
+    position: relative;
+    top: 3px;
+}
+
+.brand .sap {
+    display: inline-block;
+    background-image: url("../resources/logo-sap.png?v=1");
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+    width: 61px;
+    height: 30px;
+    vertical-align: middle;
+    position: relative;
+    top: -3px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .brand .sap {
+        background-image: url("../resources/logo-sap@2x.png?v=1");
+        background-size: 100% 100%;
+    }
+}

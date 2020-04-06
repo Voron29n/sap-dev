@@ -1,0 +1,59 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.all @ categories='SAP.developer.structure.footer'}"
+     data-sly-use.footerModel="com.epam.sap.developers.core.models.Footer"></sly>
+
+<div id="footer">
+    <div class="container">
+        <footer>
+            <div class="row-fluid">
+                <section class="footer-links">
+                    <div data-sly-list.footerTopicWithLinks="${footerModel.footerLinksWithTopic}"
+                         data-sly-unwrap>
+                        <div class="span3">
+                            <h4>${footerTopicWithLinks.linkTopic}</h4>
+                            <ul class="unstyled">
+                                <div data-sly-list.simpleLink="${footerTopicWithLinks.simpleLinks}"
+                                     data-sly-unwrap>
+                                    <li>
+                                        <a href="${simpleLink.linkURL}">${simpleLink.linkTitle}</a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div><!-- /.row-fluid -->
+            <div id="footer-sub">
+                <div class="row-fluid">
+                    <div class="footer-contact span12">
+                        <ul class="inline social pull-right">
+                            <div data-sly-list.socialMediaName="${footerModel.footerSocialMedia}"
+                                 data-sly-unwrap>
+                                <li>
+                                    <a class="thumbnail icon ${socialMediaName}"
+                                       href="${footerModel.footerSocialMedia[socialMediaName]}">
+                                        <img alt="${socialMediaName}">
+                                    </a>
+                                </li>
+                            </div>
+                            <li><a href="#">Follow Developers</a></li>
+                        </ul>
+                        <div class="copyright">
+                            <div data-sly-list.footerCopyrightRowIndex="${footerModel.footerCopyright}"
+                                 data-sly-unwrap>
+                                <ul class="inline">
+                                    <div data-sly-list.footerCopyrightItem="${footerModel.footerCopyright[footerCopyrightRowIndex]}"
+                                         data-sly-unwrap>
+                                        <li>
+                                            <a href="${footerCopyrightItem.linkURL}">${footerCopyrightItem.linkTitle}</a>
+                                        </li>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.row-fluid -->
+            </div>
+        </footer>
+    </div>
+</div>

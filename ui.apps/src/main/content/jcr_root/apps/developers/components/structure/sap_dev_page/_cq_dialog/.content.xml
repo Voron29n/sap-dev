@@ -27,6 +27,11 @@
                                     jcr:title="Select the Footer"
                                     sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
                                 <items jcr:primaryType="nt:unstructured">
+                                    <include-client
+                                            cq:showOnCreate="{Boolean}true"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
+                                            js="cq.authoring.dialog"/>
                                     <footer-select-section
                                             cq:showOnCreate="{Boolean}true"
                                             jcr:primaryType="nt:unstructured"
@@ -41,6 +46,7 @@
                                             <footer-social-media
                                                     jcr:primaryType="nt:unstructured"
                                                     text="Footer Social Media"
+                                                    selected="{Boolean}true"
                                                     value="footer-social-media"/>
                                             <footer-copyright
                                                     jcr:primaryType="nt:unstructured"
@@ -312,7 +318,7 @@
                                                             js="sap.dev.template.footer.copyright"/>
                                                     <multifieldcollection
                                                             cq:showOnCreate="{Boolean}true"
-                                                            validation="multifield-max-1"
+                                                            validation="multifield-footer-copyright-max-8"
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
                                                             composite="{Boolean}true"
@@ -328,14 +334,14 @@
                                                                         cq:showOnCreate="{Boolean}true"
                                                                         jcr:primaryType="nt:unstructured"
                                                                         sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                                        fieldDescription="Name of topic that the admin will see in the dialog at drop down optional."
+                                                                        fieldDescription="Name of copyright link that users will see on the footer."
                                                                         fieldLabel="Title of a link"
                                                                         name="./linkTitle"/>
                                                                 <linkurl
                                                                         cq:showOnCreate="{Boolean}true"
                                                                         jcr:primaryType="nt:unstructured"
                                                                         sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                                        fieldDescription="Name of topic that the admin will see in the dialog at drop down optional."
+                                                                        fieldDescription="URL of copyright link."
                                                                         fieldLabel="URL of a link"
                                                                         name="./linkURL"/>
                                                             </items>
@@ -345,6 +351,84 @@
                                             </footer-section>
                                         </items>
                                     </footer-copyright-container>
+                                    <footer-links-container
+                                            cq:showOnCreate="{Boolean}true"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                            granite:class="showhide">
+                                        <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                showhidetargetvalue="footer-links"/>
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <footer-section
+                                                    jcr:primaryType="nt:unstructured"
+                                                    jcr:title="Footer Links"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <include-client
+                                                            cq:showOnCreate="{Boolean}true"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
+                                                            js="sap.dev.template.footer.links"/>
+                                                    <multifieldcollection
+                                                            cq:showOnCreate="{Boolean}true"
+                                                            validation="multifield-footer-links-max-4"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                            composite="{Boolean}true"
+                                                            fieldDescription="Click + to add a new copyright link"
+                                                            fieldLabel="Multifield collection"
+                                                            name="./multiCol">
+                                                        <field
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                                name="./footerLinks">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <linktitle
+                                                                        cq:showOnCreate="{Boolean}true"
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                        fieldDescription="Name of topic that the admin will see in the dialog at drop down optional."
+                                                                        fieldLabel="Title of topic"
+                                                                        name="./topicTitle"/>
+                                                                <multifieldcollection
+                                                                        cq:showOnCreate="{Boolean}true"
+                                                                        validation="multifield-footer-links-topic-max-8"
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                                        composite="{Boolean}true"
+                                                                        fieldDescription="Click + to add a new copyright link"
+                                                                        fieldLabel="Multifield collection"
+                                                                        name="./multiCol">
+                                                                    <field
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                                            name="./.">
+                                                                        <items jcr:primaryType="nt:unstructured">
+                                                                            <linktitle
+                                                                                    cq:showOnCreate="{Boolean}true"
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                                    fieldDescription="Name of topic that the admin will see in the dialog at drop down optional."
+                                                                                    fieldLabel="Title of a link"
+                                                                                    name="./linkTitle"/>
+                                                                            <linkurl
+                                                                                    cq:showOnCreate="{Boolean}true"
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                                    fieldDescription="Name of topic that the admin will see in the dialog at drop down optional."
+                                                                                    fieldLabel="URL of a link"
+                                                                                    name="./linkURL"/>
+                                                                        </items>
+                                                                    </field>
+                                                                </multifieldcollection>
+                                                            </items>
+                                                        </field>
+                                                    </multifieldcollection>
+                                                </items>
+                                            </footer-section>
+                                        </items>
+                                    </footer-links-container>
                                 </items>
                             </section>
                         </items>

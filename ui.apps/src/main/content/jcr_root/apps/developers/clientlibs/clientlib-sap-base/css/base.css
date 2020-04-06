@@ -1,0 +1,126 @@
+body {
+    background: #fff;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    color: #333;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "BentonSansBold", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 20px;
+}
+h1 {
+    font-size: 60px;
+    line-height: 40px;
+    *zoom: 1;
+}
+h2 {
+    font-size: 32px;
+    line-height: 40px;
+}
+h2.light,
+h2 .light {
+    font-family: "BentonSansLight", Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 40px;
+}
+h3 {
+    font-size: 24px;
+    line-height: 30px;
+}
+h3.light,
+h3 .light,
+h3 em {
+    font-family: "BentonSansLight", Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 30px;
+}
+h4 {
+    font-size: 16px;
+}
+h4.light,
+h4 .light,
+h4 em {
+    font-family: "BentonSansLight", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 20px;
+}
+h5 {
+    font-size: 16px;
+}
+h6 {
+    font-size: 16px;
+}
+@media (max-width: 480px) {
+    h1 {
+        font-size: 30px;
+        line-height: 20px;
+    }
+    h2 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+    h3 {
+        font-size: 24px;
+        line-height: 30px;
+    }
+    h3 em {
+        font-family: "BentonSansLight", Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 20px;
+    }
+    h4 {
+        font-size: 16px;
+    }
+    h5 {
+        font-size: 16px;
+    }
+    h6 {
+        font-size: 16px;
+    }
+}
+.hr,
+hr {
+    border-top: 1px solid #f0eeee;
+    border-bottom: none;
+}
+.hr hr,
+hr hr {
+    display: none;
+}
+a:hover,
+a:active,
+a:focus {
+    text-decoration: none;
+}
+body {
+    font-family: "BentonSans", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 20px;
+    background: #f0eeee;
+}
+
+@media (max-width: 979px) {
+    body {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}

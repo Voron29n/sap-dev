@@ -17,4 +17,20 @@ public class FooterModelTest {
             pfthToSearch1 = pagePath1.substring(matcher.start(), matcher.end());
         }
     }
+
+    @Test
+    public void footerPathTest_2(){
+        String pfthToSearch1 = null;
+        String pagePath1 = "/content/developers/uk/sap";
+        Pattern pattern = Pattern.compile("/content/developers/[^/]+/[^/]+");
+        Matcher matcher = pattern.matcher(pagePath1);
+        if (matcher.find()) {
+            System.out.println(pagePath1.substring(matcher.start(), matcher.end()));
+        } else {
+            System.out.println("/content/developers/us/sap");
+        }
+    }
+
+
+
 }
