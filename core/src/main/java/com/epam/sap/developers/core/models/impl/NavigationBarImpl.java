@@ -1,11 +1,11 @@
 package com.epam.sap.developers.core.models.impl;
 
-import com.day.cq.commons.Filter;
 import com.day.cq.wcm.api.NameConstants;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import com.epam.sap.developers.core.entities.SimpleLink;
 import com.epam.sap.developers.core.models.NavigationBar;
+import com.epam.sap.developers.core.services.NavigationBarService;
 import com.epam.sap.developers.core.utils.SapDevelopersPathUtils;
 import com.epam.sap.developers.core.utils.SimpleLinkUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -16,8 +16,7 @@ import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.Iterator;
+import javax.inject.Inject;
 import java.util.List;
 
 @Model(adaptables = SlingHttpServletRequest.class,
@@ -36,6 +35,9 @@ public class NavigationBarImpl implements NavigationBar {
     @SlingObject
     private ResourceResolver resourceResolver;
 
+    @Inject
+    private NavigationBarService navigationBarService;
+
     private Page mainPage;
 
     @PostConstruct
@@ -46,37 +48,21 @@ public class NavigationBarImpl implements NavigationBar {
         getSimpleLinkOfMainPage();
     }
 
-
     /**
      * Main page in {@link NavigationBar} class not sensitive to {@link NameConstants#PN_HIDE_IN_NAV}
      */
     @Override
     public SimpleLink getSimpleLinkOfMainPage() {
-        return SimpleLinkUtils.getSimpleLinkFromPage(this.mainPage, this.currentPage);
+        return SimpleLinkUtils.getSimpleLinkFromPageWithCssClass(this.mainPage, this.currentPage);
     }
 
     @Override
     public List<SimpleLink> getSecondLevelLinks() {
-        List<SimpleLink> secondLevelPagesLinks = new ArrayList<>();
-        Iterator<Page> listChildPages = mainPage.listChildren(new HidePageFilter(), false);
-        while (listChildPages.hasNext()){
-            Page childPageItem = listChildPages.next();
-            secondLevelPagesLinks.add(SimpleLinkUtils.getSimpleLinkFromPage(childPageItem, this.currentPage));
-        }
-
-        return secondLevelPagesLinks;
+        return navigationBarService.getSecondLevelPagesLinksWithCssClass(this.mainPage, this.currentPage);
     }
 
     private String getMainPagePath(String currentPagePath) {
         String mainPagePath = SapDevelopersPathUtils.getPathByLevelRelativeToRootPath(currentPagePath, LEVEL_OF_MAIN_PAGE);
         return (mainPagePath != null) ? mainPagePath : DEFAULT_MAIN_PAGE_PATH;
     }
-
-    class HidePageFilter implements Filter {
-        @Override
-        public boolean includes(Object childPage) {
-            return !((Page) childPage).isHideInNav();
-        }
-    }
-
 }

@@ -10,13 +10,13 @@ public class SimpleLinkUtils {
         throw new IllegalStateException("Utility class");
     }
 
-    public static SimpleLink getSimpleLinkFromPage(Page childPageItem, Page currentPage){
+    public static SimpleLink getSimpleLinkFromPageWithCssClass(Page childPageItem, Page currentPage) {
         String pageJcrTitle = childPageItem.getTitle();
         String pageNaveTitle = childPageItem.getNavigationTitle();
 
         String pageTitle = (pageNaveTitle != null) ? pageNaveTitle : pageJcrTitle;
 
-        return new SimpleLink(pageTitle, childPageItem.getPath(), isThisPageActive(childPageItem.getPath() , currentPage.getPath()));
+        return new SimpleLink(pageTitle, childPageItem.getPath(), isThisPageActive(childPageItem.getPath(), currentPage.getPath()));
     }
 
     private static String isThisPageActive(String childPageItemPath, String currentPagePath) {

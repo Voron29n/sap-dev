@@ -1,7 +1,7 @@
 package com.epam.sap.developers.core.services.impl;
 
-import com.epam.sap.developers.core.entities.footer.FooterLinksWithTopic;
 import com.epam.sap.developers.core.entities.SimpleLink;
+import com.epam.sap.developers.core.entities.footer.FooterLinksWithTopic;
 import com.epam.sap.developers.core.services.FooterService;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
@@ -94,7 +94,7 @@ public class FooterServiceImpl implements FooterService {
 
         selectedSocialMedia.stream()
                 .forEach(socialMediaName -> socialMedia.put(socialMediaName, (String) propertiesOfContentAtPageWithFooter.get(socialMediaName))
-        );
+                );
 
         return socialMedia;
     }

@@ -36,7 +36,7 @@ class SimpleLinkUtilsTest {
 
     @Test
     void getSimpleLinkFromPage() {
-        SimpleLink actualSimpleLink = SimpleLinkUtils.getSimpleLinkFromPage(this.childPageItem, this.currentPage);
+        SimpleLink actualSimpleLink = SimpleLinkUtils.getSimpleLinkFromPageWithCssClass(this.childPageItem, this.currentPage);
         assertEquals(expectedSimpleLink, actualSimpleLink);
     }
 }

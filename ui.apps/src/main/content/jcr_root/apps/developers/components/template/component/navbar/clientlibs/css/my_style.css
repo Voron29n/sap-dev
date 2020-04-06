@@ -105,10 +105,6 @@ li [class*=" icon-"].icon-large,
     text-shadow: none;
 }
 
-.navbar {
-    margin-bottom: 10px;
-}
-
 .navbar-inner,
 .navbar-fixed-bottom .navbar-inner {
     padding-right: 0;
@@ -220,6 +216,10 @@ li [class*=" icon-"].icon-large,
     top: 60px;
 }
 
+.custom_navbar {
+    margin-bottom: 60px ;
+}
+
 @media (min-width: 768px) {
     .navbar-fixed-top .cover {
         border: none;
@@ -305,6 +305,9 @@ li [class*=" icon-"].icon-large,
     }
     .navbar .pull-right {
         float: none;
+    }
+    .custom_navbar {
+        margin-bottom: 9px ;
     }
 }
 
