@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Properties"
+          sling:resourceType="cq/gui/components/authoring/dialog"
+          extraClientlibs="[sap.dev.custom.youtube.validation.link,sap.dev.validation.max.multifield,sap.dev.custom.youtube.showhide]">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                    maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <linkandtitle
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Video"
+                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <checkbox
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                    fieldDescription="Only video"
+                                                    name="./isOnlyVideo"
+                                                    value="true"
+                                                    uncheckedValue="false"
+                                                    text="is only video?"
+                                                    granite:class="cq-dialog-checkbox-showhide-only-video">
+                                                <granite:data
+                                                        jcr:primaryType="nt:unstructured"
+                                                        cq-dialog-checkbox-showhide-video-data-target=".tab-video-data-showhide-target"/>
+                                            </checkbox>
+                                            <youtubeLink
+                                                    validation="youtube-link"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="YouTube Link"
+                                                    fieldDescription="It doesn't matter what type of link will be used"
+                                                    name="./youtubeLink"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </linkandtitle>
+                    <description
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Metadata"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            granite:class="tab-video-data-showhide-target"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <title
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Title"
+                                                    name="./title"/>
+                                            <description
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Description"
+                                                    name="./description"/>
+                                            <multifieldcollection
+                                                    validation="custom-multifield-max-8"
+                                                    cq:showOnCreate="{Boolean}true"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                    composite="{Boolean}true"
+                                                    fieldDescription="Click + to add a new item"
+                                                    fieldLabel="Multifield collection"
+                                                    name="./multiCol">
+                                                <field
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                        name="./.">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <linktitle
+                                                                cq:showOnCreate="{Boolean}true"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                fieldDescription="Name of topic that the admin will see in the dialog at drop down optional."
+                                                                fieldLabel="Title of a link"
+                                                                name="./title"/>
+                                                    </items>
+                                                </field>
+                                            </multifieldcollection>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </description>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>
