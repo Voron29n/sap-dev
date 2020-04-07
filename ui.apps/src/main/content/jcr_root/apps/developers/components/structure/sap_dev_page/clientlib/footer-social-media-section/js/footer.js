@@ -1,8 +1,6 @@
 (function($, $document, $window) {
     "use strict";
 
-    console.log("extra lib");
-
     var facebookCheckbox = {
         className: ".cq-dialog-checkbox-showhide-facebook",
         nameCheckbox: "cqDialogCheckboxShowhideFacebookTarget"

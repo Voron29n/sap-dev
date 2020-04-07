@@ -1,8 +1,23 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>${properties.jcr:title}</title>
+    <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+          data-sly-call="${clientlib.css @ categories='SAP.developers.bootstrap.resp'}"
+          data-sly-call="${clientlib.css @ categories='SAP.developers.bootstrap'}"/>
+</head>
+<body>
 <div>
-     <sly data-sly-include="/libs/wcm/core/components/init/init.jsp"/>
+    <sly data-sly-include="/libs/wcm/core/components/init/init.jsp"/>
     <sly data-sly-resource="nav"></sly>
     <div class="container">
         <div class="page__par" data-sly-resource="par"></div>
     </div>
     <sly data-sly-resource="footer"></sly>
 </div>
+</body>
+</html>
+

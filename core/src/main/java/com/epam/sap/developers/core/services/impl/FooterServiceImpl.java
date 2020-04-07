@@ -25,6 +25,7 @@ public class FooterServiceImpl implements FooterService {
     protected static final String FOOTER_LINK_TITLE_PROPERTY = "linkTitle";
     protected static final String FOOTER_LINK_URL_PROPERTY = "linkURL";
     protected static final String FOOTER_LINK_TOPIC_PROPERTY = "topicTitle";
+
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
