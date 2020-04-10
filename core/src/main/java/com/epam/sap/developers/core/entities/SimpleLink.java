@@ -1,7 +1,5 @@
 package com.epam.sap.developers.core.entities;
 
-import com.day.cq.wcm.api.Page;
-
 import java.util.Objects;
 
 public class SimpleLink {

@@ -1,7 +1,7 @@
 package com.epam.sap.developers.core.services;
 
-import com.epam.sap.developers.core.entities.footer.FooterLinksWithTopic;
 import com.epam.sap.developers.core.entities.SimpleLink;
+import com.epam.sap.developers.core.entities.footer.FooterLinksWithTopic;
 import org.apache.sling.api.resource.Resource;
 
 import java.util.List;
