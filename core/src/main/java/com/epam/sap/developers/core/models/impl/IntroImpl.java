@@ -42,11 +42,6 @@ public class IntroImpl implements Intro {
     @ValueMapValue
     private String fileReference;
 
-    @PostConstruct
-    public void init() {
-//        System.out.println(title);
-    }
-
     @Override
     public String getButtonHref() {
         return buttonHref;
