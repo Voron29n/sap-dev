@@ -1,0 +1,28 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.intro="com.epam.sap.developers.core.models.Intro"
+     data-sly-test.hasContent="${!intro.empty}">
+    <sly data-sly-call="${clientlib.css @ categories='sap.dev.custom.intro'}"></sly>
+
+
+    <div style="${intro.maxHeight @context='styleString'}" class="intro-container">
+
+        <!-- Main hero unit for a primary marketing message or call to action -->
+        <div class="hero-unit">
+            ${intro.introTitle @context='html'}
+            <p>${intro.introDescription}</p>
+            <p data-sly-test="${intro.buttonNeed}">
+                <a class="btn btn-primary" href="${intro.buttonHref}" rel="external"><i
+                        class="icon-off icon-white"></i> ${intro.buttonText}</a>
+            </p>
+        </div>
+        <sly data-sly-test="${intro.imagePath}">
+            <img src="${intro.imagePath}" class="hero-image" alt="image">
+        </sly>
+
+    </div>
+
+</sly>
+<sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!hasContent}"></sly>
+
+
