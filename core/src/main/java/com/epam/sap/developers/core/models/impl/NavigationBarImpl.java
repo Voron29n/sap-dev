@@ -25,7 +25,7 @@ import java.util.List;
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class NavigationBarImpl implements NavigationBar {
 
-    protected static final String RESOURCE_TYPE = "sap/components/totemplate/navbar";
+    protected static final String RESOURCE_TYPE = "developers/components/totemplate/navbar";
     protected static final int LEVEL_OF_MAIN_PAGE = 2;
     protected static final String DEFAULT_MAIN_PAGE_PATH = "/content/developers/uk/sap";
 

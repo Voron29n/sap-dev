@@ -1,0 +1,12 @@
+<template data-sly-template.buttonOff="${ @ button}">
+        <p data-sly-test="${button.buttonNeed}">
+                <a class="btn btn-primary" href="${button.buttonLink}"><i
+                        class="icon-off icon-white"></i> ${button.buttonText}</a>
+        </p>
+</template>
+
+<template data-sly-template.image="${ @ imageSrc}">
+        <sly data-sly-test="${imageSrc}">
+                <img src="${imageSrc}" class="hero-image" alt="image">
+        </sly>
+</template>

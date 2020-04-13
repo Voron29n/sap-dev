@@ -8,5 +8,5 @@ public interface YouTubeService {
 
     String getYouTubeVideoSrcToEmbedAtHtml(String youtubeVideoUrl);
 
-    List<String> getItemsOfDescriptions(Resource youtubeComponent);
+    List<String> getItemsOfMultiefieldProperty(Resource youtubeComponent);
 }

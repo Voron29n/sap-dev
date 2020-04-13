@@ -6,16 +6,12 @@
         nameCheckbox: "cqDialogCheckboxShowhideButtonLinkTarget",
     };
 
-    var inputTypeRadioGroup = {
-        className: ".cq-dialog-radio-group-showhide"
-    };
-
     $(document).on("foundation-contentloaded", function (e) {
         // if there is already an inital value make sure the according target element becomes visible
         checkboxShowHideHandler($(buttonNeedCheckbox.className, e.target));
     });
 
-    $(document).on("change", buttonNeedCheckbox.className, function (e) {
+    $(document).on("change", buttonNeedCheckbox.className, function () {
         checkboxShowHideHandler($(this));
     });
 

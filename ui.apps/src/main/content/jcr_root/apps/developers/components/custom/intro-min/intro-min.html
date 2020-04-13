@@ -1,0 +1,21 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.introMin="com.epam.sap.developers.core.models.Intro"
+     data-sly-use.button="com.epam.sap.developers.core.models.Button"
+     data-sly-use.templates="templates.html"
+     data-sly-test.hasContent="${!introMin.empty || !button.empty}">
+    <sly data-sly-call="${clientlib.css @ categories='sap.dev.custom.intro.min.style'}"></sly>
+
+
+    <div class="intro-min-container">
+        <sly data-sly-call="${templates.image @ imageSrc=introMin.imagePath}"></sly>
+        <div class="hero-min">
+            ${introMin.introTitle @context='html'}
+            <p>${introMin.introDescription}</p>
+            <sly data-sly-call="${templates.itemList @ itemList=introMin.itemList}"></sly>
+            <sly data-sly-call="${templates.button @ button=button}"></sly>
+        </div>
+    </div>
+
+</sly>
+<sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!hasContent}"></sly>

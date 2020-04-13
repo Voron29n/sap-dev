@@ -1,0 +1,24 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.column="com.epam.sap.developers.core.models.Column"
+     data-sly-use.button="com.epam.sap.developers.core.models.Button"
+     data-sly-use.templates="templates.html"
+     data-sly-test.hasContent="${!column.empty}">
+    <sly data-sly-call="${clientlib.css @ categories='sap.dev.custom.columns.style'}"></sly>
+
+    <div class="column-title" data-sly-test="${column.titleNeed}">
+        ${column.title @context='html'}
+    </div>
+    <div style="${column.columnsStyle @context='styleString'}" class="column-container">
+        <sly data-sly-list.columnName="${column.columnNodeListName}">
+            <div>
+                <sly data-sly-resource="${ @path=columnName, resourceType='wcm/foundation/components/parsys'}"/>
+            </div>
+        </sly>
+    </div>
+    <sly data-sly-call="${templates.button @ button = button}"></sly>
+
+</sly>
+<sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!hasContent}"></sly>
+
+

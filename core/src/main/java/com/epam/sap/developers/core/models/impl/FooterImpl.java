@@ -29,7 +29,7 @@ import java.util.concurrent.atomic.AtomicInteger;
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class FooterImpl implements Footer {
 
-    protected static final String RESOURCE_TYPE = "sap/components/totemplate/footer";
+    protected static final String RESOURCE_TYPE = "developers/components/totemplate/footer";
 
     @ScriptVariable
     private Page currentPage;

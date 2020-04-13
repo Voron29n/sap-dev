@@ -52,7 +52,7 @@ public class YouTubeServiceImpl implements YouTubeService {
     }
 
     @Override
-    public List<String> getItemsOfDescriptions(Resource youtubeComponent) {
+    public List<String> getItemsOfMultiefieldProperty(Resource youtubeComponent) {
         List<String> itemsList = new ArrayList<>();
         Node youtubeComponentNode = youtubeComponent.adaptTo(Node.class);
         try {

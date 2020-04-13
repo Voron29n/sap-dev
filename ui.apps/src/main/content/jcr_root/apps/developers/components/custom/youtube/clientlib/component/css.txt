@@ -1,2 +1,2 @@
 #base=css
-style.css
+video-style.css

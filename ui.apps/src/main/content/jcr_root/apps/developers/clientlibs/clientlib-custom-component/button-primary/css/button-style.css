@@ -1,92 +1,3 @@
-.intro-container {
-    position: relative;
-}
-
-.hero-unit {
- 	padding: 20px 0;
-    background-color:transparent;
-}	
-
-.hero-unit h1 {
-    margin-bottom: 20px;
-}
-
-@media (min-width: 479px) {
-    .hero-image {
-    	position: absolute;
-    	top: 0;
-        left: 75%;
-    	margin-left: -270px;
-    	max-width: 500px;
-    	z-index: -1;
-	}
-    .intro-container {
-    	position: relative;
-	}
-	.hero-unit {
- 	    padding: 20px 0;
-    	margin: 0;
-    	text-align: left;
-    	background-color:transparent;
-	}	
-}
-
-
-@media (max-width: 979px){
-	.hero-unit h1 {
-    	font-size: 30px;
-	}
-}
-
-
-@media (max-width: 979px) and (min-width:  479px){
-	.hero-unit h1{
-    	width: 50%;
-	}
-    .hero-unit p{
-    	width: 50%;
-	}
-	.hero-image {
-        margin-top: 20px;
-    	max-width: 400px;
-    }
-}
-
-@media (max-width: 979px) and (min-width: 767px) {
-    .hero-image {
-    	left: 80%;
-    	margin-left: -270px;
-        max-width: 400px;
-    }
-}
-
-@media (max-width: 767px) and (min-width: 479px) {
-    .hero-image {
-    	left: 80%;
-        margin-left: -220px;
-    }
-}
-
-@media (max-width: 479px) {
-	.hero-image {
-        max-width: 100%;
-    	position:static;
-    }
-    .hero-unit {
-    	text-align: center;
-	}
-}
-
-.btn [class^="icon-"]
-.btn [class*=" icon-"]{
-    display: inline;
-}
-
-.btn [class^="icon-"].icon-spin,
-.btn [class*=" icon-"].icon-spin {
-    display: inline-block;
-}
-
 .btn {
     filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
     -webkit-box-shadow: none;
@@ -119,12 +30,6 @@
 .btn[disabled] {
     background: #999999;
     color: #4d4d4d;
-}
-.btn i {
-    position: relative;
-    font-size: 14px;
-    top: -2px;
-    vertical-align: middle;
 }
 
 .btn-primary {
@@ -165,10 +70,4 @@
     color: #333333;
 }
 
-.icon-off:before {
-    content: "\f011";
-}
 
-.icon-white{
-    background-image: none;
-}

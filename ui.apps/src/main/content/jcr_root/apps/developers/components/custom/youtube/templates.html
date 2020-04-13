@@ -1,0 +1,26 @@
+<template data-sly-template.onlyVideo = "${@ videoSrc}">
+    <div class="row-fluid video">
+        <div class="video-container">
+            <iframe width="560" height="315" src="${videoSrc}" frameborder="0"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+</template>
+
+<template data-sly-template.notOnlyVideo = "${@ videoSrc}">
+    <div class="span8">
+        <div class="video-container">
+            <iframe width="560" height="315" src="${videoSrc}" frameborder="0"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+</template>
+
+<template data-sly-template.itemList="${ @ itemList}">
+    <ul class="icons">
+        <div data-sly-list.item="${itemList}"
+             data-sly-unwrap>
+            <li><i class="icon-ok"></i>${item}</li>
+        </div>
+    </ul>
+</template>

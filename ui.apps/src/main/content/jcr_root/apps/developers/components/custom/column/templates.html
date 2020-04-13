@@ -1,0 +1,23 @@
+<template data-sly-template.button="${ @ button }">
+    <sly data-sly-test="${button.buttonNeed}"
+         data-sly-call="${buttonAndTitle @ button=button}">
+    </sly>
+</template>
+
+<template data-sly-template.buttonAndTitle="${ @ button}">
+    <sly data-sly-test="${button.titleForButtonNeed}">
+        <h3 class="column-button">${button.buttonTitle}
+            <sly data-sly-call="${simpleButton @ button=button}"></sly>
+        </h3>
+    </sly>
+    <sly data-sly-test="${!button.titleForButtonNeed}">
+        <h3 class="column-button">
+            <sly data-sly-call="${simpleButton @ button=button}"></sly>
+        </h3>
+    </sly>
+</template>
+
+<template data-sly-template.simpleButton="${ @ button}">
+    <a class="btn btn-primary" href="${button.buttonLink}">${button.buttonText}</a>
+</template>
+

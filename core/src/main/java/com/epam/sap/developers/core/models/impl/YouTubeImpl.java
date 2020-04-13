@@ -21,7 +21,7 @@ import java.util.List;
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class YouTubeImpl implements YouTube {
 
-    protected static final String RESOURCE_TYPE = "sap/components/custom/youtube";
+    protected static final String RESOURCE_TYPE = "developers/components/custom/youtube";
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -44,7 +44,7 @@ public class YouTubeImpl implements YouTube {
     @ValueMapValue
     private boolean isOnlyVideo;
 
-    List<String> itemsOfDescriptions;
+    private List<String> itemsOfDescriptions;
 
     @Override
     public String getYoutubeVideoSrc() {
@@ -67,7 +67,7 @@ public class YouTubeImpl implements YouTube {
 
     @Override
     public List<String> getItemList() {
-        itemsOfDescriptions = youTubeService.getItemsOfDescriptions(currentResource);
+        itemsOfDescriptions = youTubeService.getItemsOfMultiefieldProperty(currentResource);
         return itemsOfDescriptions;
     }
 

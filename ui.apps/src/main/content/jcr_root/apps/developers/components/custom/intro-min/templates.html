@@ -1,0 +1,20 @@
+<template data-sly-template.button="${ @ button}">
+    <p data-sly-test="${button.buttonNeed}">
+        <a class="btn btn-primary" href="${button.buttonLink}">${button.buttonText}</a>
+    </p>
+</template>
+
+<template data-sly-template.image="${ @ imageSrc}">
+    <sly data-sly-test="${imageSrc}">
+        <p class="min-img-container"><img src="${imageSrc}" class="hero-min-image" alt="image"></p>
+    </sly>
+</template>
+
+<template data-sly-template.itemList="${ @ itemList}">
+    <ul class="icons">
+        <div data-sly-list.item="${itemList}"
+             data-sly-unwrap>
+            <li><i class="icon-ok"></i>${item}</li>
+        </div>
+    </ul>
+</template>

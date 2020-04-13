@@ -1,10 +1,10 @@
 package com.epam.sap.developers.core.models;
 
+import com.epam.sap.developers.core.entities.SimpleLink;
+
+import java.util.List;
+
 public interface Intro {
-
-    String getButtonHref();
-
-    String getButtonText();
 
     String getIntroTitle();
 
@@ -14,7 +14,7 @@ public interface Intro {
 
     String getMaxHeight();
 
-    boolean isEmpty();
+    List<String> getItemList();
 
-    boolean isButtonNeed();
+    boolean isEmpty();
 }

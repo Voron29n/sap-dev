@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Intro Min Component Properties"
+          sling:resourceType="cq/gui/components/authoring/dialog"
+          extraClientlibs="[sap.dev.validation.max.multifield,sap.dev.custom.intro.showhide.button.link,sap.dev.custom.intro.dialog.style]">
+    <content jcr:primaryType="nt:unstructured">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs jcr:primaryType="nt:unstructured">
+                <items jcr:primaryType="nt:unstructured">
+                    <asset
+                            jcr:primaryType="nt:unstructured"
+                            sling:hideResource="{Boolean}false"/>
+                    <metadata
+                            jcr:primaryType="nt:unstructured"
+                            sling:hideResource="{Boolean}true"/>
+                    <customMetadata
+                            jcr:primaryType="nt:unstructured"
+                            sling:hideResource="{Boolean}false"/>
+                    <button
+                            jcr:primaryType="nt:unstructured"
+                            sling:hideResource="{Boolean}false"/>
+                    <multifield
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Description title"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <multifieldcollection
+                                                    validation="custom-multifield-max-8"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                    composite="{Boolean}true"
+                                                    fieldDescription="Click + to add a new item"
+                                                    fieldLabel="Multifield collection"
+                                                    name="./multiCol">
+                                                <field
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                        name="./.">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <linktitle
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                fieldDescription="Name of topic that the admin will see in the dialog at drop down optional."
+                                                                fieldLabel="Title of a link"
+                                                                name="./title"/>
+                                                    </items>
+                                                </field>
+                                            </multifieldcollection>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </multifield>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

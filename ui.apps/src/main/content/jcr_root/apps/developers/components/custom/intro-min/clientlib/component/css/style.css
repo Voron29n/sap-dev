@@ -1,0 +1,59 @@
+.intro-min-container h3 {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.intro-min-container h1 {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.intro-min-container .icons {
+    margin: 0 20px;
+    font-size: 12px;
+    text-align: left;
+    position: relative;
+    padding: 5px 0;
+    text-indent: 0;
+}
+
+.intro-min-container .icons li i {
+    font-size: 24px;
+    position: absolute;
+    left: -31px;
+}
+
+.min-img-container {
+    text-align: center;
+}
+
+.min-img-container > img {
+    max-width: 60%;
+}
+
+.hero-min > p {
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .intro-min-container h3 {
+        text-align: left;
+    }
+    .intro-min-container h3 {
+        text-align: center;
+    }
+    .intro-min-container {
+        display: flex;
+    }
+    .min-img-container > img {
+        max-width: 72px;
+    }
+    .hero-min {
+        padding-left: 20px;
+    }
+    .hero-min > p {
+        text-align: left;
+    }
+}

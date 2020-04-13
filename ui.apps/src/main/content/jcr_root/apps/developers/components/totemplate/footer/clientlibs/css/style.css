@@ -92,22 +92,22 @@
 }
 
 #footer-sub .social .facebookLink  img {
-    content: url("../../socialmedia/svg-icon-social-network-facebook.svg");
+    content: url("../resources/svg-icon-social-network-facebook.svg");
 }
 #footer-sub .social .instagramLink img {
-    content: url("../../socialmedia/svg-icon-social-network-instagram.svg");
+    content: url("../resources/svg-icon-social-network-instagram.svg");
 }
 #footer-sub .social .linkedinLink img {
-    content: url("../../socialmedia/svg-icon-social-network-linked-in.svg");
+    content: url("../resources/svg-icon-social-network-linked-in.svg");
 }
 #footer-sub .social .twitterLink img {
-    content: url("../../socialmedia/svg-icon-social-network-twitter.svg");
+    content: url("../resources/svg-icon-social-network-twitter.svg");
 }
 #footer-sub .social .youtubeLink img {
-    content: url("../../socialmedia/svg-icon-social-network-youtube.svg");
+    content: url("../resources/svg-icon-social-network-youtube.svg");
 }
 #footer-sub .social .githubLink img {
-    content: url("../../socialmedia/svg-icon-social-network-github.svg");
+    content: url("../resources/svg-icon-social-network-github.svg");
 }
 
 

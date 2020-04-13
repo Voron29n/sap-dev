@@ -1,35 +1,21 @@
 <div data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
      data-sly-use.youtube="com.epam.sap.developers.core.models.YouTube"
      data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.templates="templates.html"
      data-sly-test.hasContent="${!youtube.empty}">
     <div data-sly-call="${clientlib.css @ categories='sap.dev.custom.youtube'}"></div>
 
-    <sly data-sly-test="${youtube.onlyVideo}">
-        <div class="row-fluid video">
-            <div class="video-container">
-                <iframe width="560" height="315" src="${youtube.youtubeVideoSrc}" frameborder="0"
-                        allowfullscreen></iframe>
-            </div>
-        </div>
+    <sly data-sly-test="${youtube.onlyVideo}"
+         data-sly-call="${templates.onlyVideo @ videoSrc=youtube.youtubeVideoSrc}">
     </sly>
     <sly data-sly-test="${!youtube.onlyVideo}">
         <div class="row-fluid video">
             <div class="span4">
                 <h3 class="light">${youtube.title}</h3>
                 <p>${youtube.description}</p>
-                <ul class="icons">
-                    <div data-sly-list.item="${youtube.itemList}"
-                         data-sly-unwrap>
-                        <li><i class="icon-ok"></i>${item}</li>
-                    </div>
-                </ul>
+                <sly data-sly-call="${templates.itemList @ itemList=youtube.itemList}"></sly>
             </div>
-            <div class="span8">
-                <div class="video-container">
-                    <iframe width="560" height="315" src="${youtube.youtubeVideoSrc}" frameborder="0"
-                            allowfullscreen></iframe>
-                </div>
-            </div>
+            <sly data-sly-call="${templates.notOnlyVideo @ videoSrc=youtube.youtubeVideoSrc}"></sly>
         </div>
     </sly>
 </div>
