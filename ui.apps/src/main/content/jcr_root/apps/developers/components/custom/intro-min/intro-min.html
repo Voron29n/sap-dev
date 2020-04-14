@@ -11,7 +11,7 @@
         <sly data-sly-call="${templates.image @ imageSrc=introMin.imagePath}"></sly>
         <div class="hero-min">
             ${introMin.introTitle @context='html'}
-            <p>${introMin.introDescription}</p>
+            ${introMin.introDescription @context='html'}
             <sly data-sly-call="${templates.itemList @ itemList=introMin.itemList}"></sly>
             <sly data-sly-call="${templates.button @ button=button}"></sly>
         </div>

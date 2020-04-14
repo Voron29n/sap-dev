@@ -11,7 +11,7 @@
         <!-- Main hero unit for a primary marketing message or call to action -->
         <div class="hero-unit">
             ${intro.introTitle @context='html'}
-            <p>${intro.introDescription}</p>
+            ${intro.introDescription @context='html'}
             <sly data-sly-call="${templates.buttonOff @ button=button}"></sly>
         </div>
         <sly data-sly-call="${templates.image @ imageSrc=intro.imagePath}"></sly>

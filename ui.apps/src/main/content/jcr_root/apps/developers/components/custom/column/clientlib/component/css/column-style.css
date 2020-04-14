@@ -8,3 +8,7 @@
 .column-button {
     text-align: end;
 }
+
+.column {
+    padding: 40px 0px;
+}

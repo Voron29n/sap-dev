@@ -1,0 +1,31 @@
+.news-container .date {
+    font-size: 12px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.news-container > h3 {
+   margin: 5px 0;
+}
+
+.news-container > h4 {
+    margin: 5px 0;
+}
+
+.news-container > h4 > a {
+    color: #333333;
+}
+
+
+.news-container > h3 >  a {
+   color: #333333;
+}
+
+.news-container > p {
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+.news-container {
+    line-height: 20px;
+}
