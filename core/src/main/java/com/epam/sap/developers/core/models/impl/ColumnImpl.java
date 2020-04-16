@@ -1,14 +1,10 @@
 package com.epam.sap.developers.core.models.impl;
 
-import com.epam.sap.developers.core.entities.SimpleLink;
 import com.epam.sap.developers.core.models.Column;
 import com.epam.sap.developers.core.services.ColumnService;
-import com.epam.sap.developers.core.utils.SimpleLinkUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.inject.Inject;

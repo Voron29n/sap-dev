@@ -1,30 +1,21 @@
 package com.epam.sap.developers.core.models.impl;
 
-import com.day.cq.wcm.foundation.Image;
-import com.epam.sap.developers.core.entities.SimpleLink;
-import com.epam.sap.developers.core.models.Button;
 import com.epam.sap.developers.core.models.Intro;
 import com.epam.sap.developers.core.services.YouTubeService;
 import com.epam.sap.developers.core.utils.ModelUtils;
-import com.epam.sap.developers.core.utils.SimpleLinkUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.Via;
-import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
-import org.apache.sling.models.annotations.via.ResourceSuperType;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import java.util.List;
 
 @Model(adaptables = SlingHttpServletRequest.class,
         adapters = {Intro.class},
-        resourceType = {IntroImpl.RESOURCE_TYPE_INTRO,IntroImpl.RESOURCE_TYPE_INTRO_MIN},
+        resourceType = {IntroImpl.RESOURCE_TYPE_INTRO, IntroImpl.RESOURCE_TYPE_INTRO_MIN},
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class IntroImpl implements Intro {
 

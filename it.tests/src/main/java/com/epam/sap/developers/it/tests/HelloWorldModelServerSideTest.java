@@ -21,6 +21,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Collections;
 import java.util.concurrent.Callable;
 
+import com.epam.sap.developers.core.models.impl.HelloWorldModelImpl;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
@@ -31,8 +32,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import com.epam.sap.developers.core.models.HelloWorldModel;
 
 /** 
  *  Test case which uses OSGi services injection
@@ -86,7 +85,7 @@ public class HelloWorldModelServerSideTest {
             protected void call0(ResourceResolver rr) throws Exception {
                 Resource testResource = rr.getResource("/tmp/testResource");
                 
-                HelloWorldModel hello = testResource.adaptTo(HelloWorldModel.class);
+                HelloWorldModelImpl hello = testResource.adaptTo(HelloWorldModelImpl.class);
                 
                 assertNotNull("Expecting HelloWorldModel to be adapted from Resource", hello);
 

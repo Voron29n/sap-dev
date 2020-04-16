@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Intro Component Properties"
+          sling:resourceType="cq/gui/components/authoring/dialog"
+          extraClientlibs="[sap.dev.custom.news.dialog.style]">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                    maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <testTopic
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Generate Type"
+                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <topics
+                                                    validation="custom-multifield-max-8"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                    composite="{Boolean}true"
+                                                    fieldDescription="Click + to add a new item"
+                                                    fieldLabel="Multifield collection"
+                                                    name="./multiCol"
+                                                    granite:class="multifield-topic-item">
+                                                <field
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                        name="./dropdownFieldsForEvents/topicEvents">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <file
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                                autoStart="{Boolean}false"
+                                                                class="cq-droptarget"
+                                                                fileNameParameter="./fileName"
+                                                                fileReferenceParameter="./fileReference"
+                                                                mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
+                                                                multiple="{Boolean}false"
+                                                                name="./file"
+                                                                title="Upload Image Asset"
+                                                                uploadUrl="${suffix.path}"
+                                                                useHTML5="{Boolean}true"/>
+                                                        <linktitle
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                fieldDescription="Name of topic that the admin will see in the dialog at dropdown selector."
+                                                                fieldLabel="Topic for event component"
+                                                                name="./topic"/>
+                                                    </items>
+                                                </field>
+                                            </topics>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </testTopic>
+                    <testType
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Generate Type"
+                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <eventTopic
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                                    fieldLabel="Type of search"
+                                                    name="./eventTopic">
+                                                <datasource jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="/apps/developers/components/custom/test/datastore.html"/>
+                                            </eventTopic>
+                                            <eventType
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                                    fieldLabel="Type of search"
+                                                    name="./eventType">
+                                                <datasource jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="/apps/developers/components/custom/test/datastore.html"/>
+                                            </eventType>
+                                            <topics
+                                                    validation="custom-multifield-max-8"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                    composite="{Boolean}true"
+                                                    fieldDescription="Click + to add a new item"
+                                                    fieldLabel="Multifield collection"
+                                                    name="./multiCol">
+                                                <field
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                        name="./dropdownFieldsForEvents/typeEvents">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <linktitle
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                fieldDescription="Name of type that the admin will see in the dialog at dropdown selector."
+                                                                fieldLabel="Type for event component"
+                                                                name="./type"/>
+                                                    </items>
+                                                </field>
+                                            </topics>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </testType>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

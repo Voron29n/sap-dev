@@ -15,6 +15,7 @@
  */
 package com.epam.sap.developers.core.models;
 
+import com.epam.sap.developers.core.models.impl.HelloWorldModelImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;

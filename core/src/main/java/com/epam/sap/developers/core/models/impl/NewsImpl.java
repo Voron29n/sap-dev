@@ -34,7 +34,7 @@ public class NewsImpl implements News {
     @Override
     public String getDate() {
         String pattern = "MMMM d, YYYY";
-        SimpleDateFormat simpleDateFormat =new SimpleDateFormat(pattern);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         return simpleDateFormat.format(newsDate);
     }
 

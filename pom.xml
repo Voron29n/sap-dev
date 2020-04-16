@@ -28,11 +28,11 @@
         <module>all</module>
         <module>core</module>
         <module>ui.apps</module>
-<!--        <module>ui.apps.structure</module>-->
-<!--        <module>ui.content</module>-->
-<!--        <module>it.tests</module>-->
-<!--        <module>it.launcher</module>-->
-<!--        <module>dispatcher</module>-->
+        <module>ui.apps.structure</module>
+        <module>ui.content</module>
+        <module>it.tests</module>
+        <module>it.launcher</module>
+        <module>dispatcher</module>
     </modules>
 
     <properties>
