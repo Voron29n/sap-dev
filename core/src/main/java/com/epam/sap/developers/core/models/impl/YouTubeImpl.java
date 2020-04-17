@@ -3,8 +3,10 @@ package com.epam.sap.developers.core.models.impl;
 
 import com.epam.sap.developers.core.models.YouTube;
 import com.epam.sap.developers.core.services.YouTubeService;
+import com.epam.sap.developers.core.utils.ServiceUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
@@ -13,7 +15,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Model(adaptables = SlingHttpServletRequest.class,
         adapters = {YouTube.class},
@@ -22,6 +28,7 @@ import java.util.List;
 public class YouTubeImpl implements YouTube {
 
     protected static final String RESOURCE_TYPE = "developers/components/custom/youtube";
+    private static final String DESCRIPTION_ITEM_PROPERTY = "title";
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -43,6 +50,9 @@ public class YouTubeImpl implements YouTube {
 
     @ValueMapValue
     private boolean isOnlyVideo;
+
+    @Inject
+    private List<Resource> descriptionList;
 
     private List<String> itemsOfDescriptions;
 
@@ -66,8 +76,11 @@ public class YouTubeImpl implements YouTube {
     }
 
     @Override
-    public List<String> getItemList() {
-        itemsOfDescriptions = youTubeService.getItemsOfMultiefieldProperty(currentResource);
+    public List<String> getItemList() throws RepositoryException {
+        itemsOfDescriptions = ServiceUtils.getStrListFromResourceListWithOneProperty(descriptionList, DESCRIPTION_ITEM_PROPERTY);
+        if (itemsOfDescriptions == null) {
+            logger.error("Description items not found");
+        }
         return itemsOfDescriptions;
     }
 

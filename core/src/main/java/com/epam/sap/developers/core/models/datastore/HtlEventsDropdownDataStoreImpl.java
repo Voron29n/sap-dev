@@ -39,7 +39,7 @@ public class HtlEventsDropdownDataStoreImpl implements HtlEventsDropdownDataStor
 
     @Override
     @PostConstruct
-    public void activate() throws Exception {
+    public void init() throws Exception {
         Resource dropdownResource = resolver.getResource(PATH_TO_DROPDOWN);
         EventDropdownBean dropdownBean = dropdownResource.adaptTo(EventDropdownBean.class);
 

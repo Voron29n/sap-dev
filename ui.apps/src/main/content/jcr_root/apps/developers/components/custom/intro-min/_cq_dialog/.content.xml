@@ -48,7 +48,7 @@
                                                 <field
                                                         jcr:primaryType="nt:unstructured"
                                                         sling:resourceType="granite/ui/components/coral/foundation/container"
-                                                        name="./.">
+                                                        name="./descriptionList">
                                                     <items jcr:primaryType="nt:unstructured">
                                                         <linktitle
                                                                 jcr:primaryType="nt:unstructured"

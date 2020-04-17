@@ -5,7 +5,7 @@
           jcr:primaryType="nt:unstructured"
           jcr:title="Intro Component Properties"
           sling:resourceType="cq/gui/components/authoring/dialog"
-          extraClientlibs="[sap.dev.custom.news.dialog.style]">
+          extraClientlibs="[]">
     <content
             jcr:primaryType="nt:unstructured"
             sling:resourceType="granite/ui/components/coral/foundation/container">

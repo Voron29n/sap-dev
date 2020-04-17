@@ -3,6 +3,7 @@ package com.epam.sap.developers.core.models.impl;
 import com.epam.sap.developers.core.models.Intro;
 import com.epam.sap.developers.core.services.YouTubeService;
 import com.epam.sap.developers.core.utils.ModelUtils;
+import com.epam.sap.developers.core.utils.ServiceUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
@@ -22,6 +23,8 @@ public class IntroImpl implements Intro {
     protected static final String RESOURCE_TYPE_INTRO = "developers/components/custom/intro";
     protected static final String RESOURCE_TYPE_INTRO_MIN = "developers/components/custom/intro-min";
 
+    private static final String DESCRIPTION_ITEM_PROPERTY = "title";
+
     @Inject
     private YouTubeService youTubeService;
 
@@ -39,6 +42,9 @@ public class IntroImpl implements Intro {
 
     @ValueMapValue
     private String fileReference;
+
+    @Inject
+    private List<Resource> descriptionList;
 
     @Override
     public String getIntroTitle() {
@@ -62,7 +68,7 @@ public class IntroImpl implements Intro {
 
     @Override
     public List<String> getItemList() {
-        return youTubeService.getItemsOfMultiefieldProperty(currentResource);
+        return ServiceUtils.getStrListFromResourceListWithOneProperty(descriptionList, DESCRIPTION_ITEM_PROPERTY);
     }
 
     @Override

@@ -41,7 +41,7 @@ public class NavigationBarImpl implements NavigationBar {
     private Page mainPage;
 
     @PostConstruct
-    public void init() {
+    protected void init() {
         PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
         String pathToMainPage = getMainPagePath(currentPage.getPath());
         mainPage = pageManager.getPage(pathToMainPage);

@@ -60,7 +60,7 @@ public class FooterImpl implements Footer {
 
 
     @PostConstruct
-    public void init() {
+    protected void init() {
         PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
         String pagePathWithFooterProperty = getPathToPageWithFooterProperty(currentPage.getPath());
         contentOfPageWithFooterProperty = pageManager.getPage(pagePathWithFooterProperty).getContentResource();

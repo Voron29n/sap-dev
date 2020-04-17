@@ -68,6 +68,7 @@
                                                                 name="./iconNumber"/>
                                                         <topics
                                                                 cq:showOnCreate="{Boolean}true"
+                                                                cq:hideOnEdit="{Boolean}false"
                                                                 validation="event-topic-field"
                                                                 jcr:primaryType="nt:unstructured"
                                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
@@ -136,8 +137,9 @@
                                                                 fieldLabel="Icons for types"
                                                                 emptyText="Icon number some like: \\f000"
                                                                 name="./iconNumber"/>
-                                                        <topics
+                                                        <types
                                                                 cq:showOnCreate="{Boolean}true"
+                                                                cq:hideOnEdit="{Boolean}false"
                                                                 validation="event-type-field"
                                                                 jcr:primaryType="nt:unstructured"
                                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
@@ -160,3 +162,5 @@
         </items>
     </content>
 </jcr:root>
+
+

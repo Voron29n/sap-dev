@@ -1,6 +1,7 @@
 package com.epam.sap.developers.core.models.impl;
 
 import com.epam.sap.developers.core.models.News;
+import com.epam.sap.developers.core.utils.ModelUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
@@ -33,9 +34,7 @@ public class NewsImpl implements News {
 
     @Override
     public String getDate() {
-        String pattern = "MMMM d, YYYY";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        return simpleDateFormat.format(newsDate);
+        return ModelUtils.formatDateToStr(newsDate);
     }
 
     @Override
