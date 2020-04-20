@@ -1,45 +1,50 @@
-var eventTopicSelector = "[data-foundation-validation^='event-topic-field']";
-var eventTypeSelector = "[data-foundation-validation^='event-type-field']";
+$(window)
+    .adaptTo("foundation-registry")
+    .register("foundation.validation.validator", {
+        selector: "[data-foundation-validation^='event-field']",
+        validate: function (el) {
+            let validationName = el.getAttribute("data-validation");
+            let validationTitle = validationName.replace("event-field-", "");
 
-$(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
-  selector: eventTopicSelector,
-  validate: function (el) {
+            let isUnique = true;
 
-    let isUnique = true;
+            $(getInputSelector(validationName)).each(function (
+                indexInArray,
+                topicInput
+            ) {
+                if (
+                    topicInput.id != el.id &&
+                    isValueEquals(topicInput.value, el.value)
+                ) {
+                    isUnique = false;
+                    return;
+                }
+            });
 
-    $("input".concat(eventTopicSelector)).each(function (indexInArray, topicInput) {
-      if (topicInput.id != el.id && isTopicEquals(topicInput.value, el.value)) {
-        isUnique = false;
-        return;
-      }
+            if (!isUnique) {
+                return (
+                    ucFirst(validationTitle) +
+                    " must be unique! Please, check the entered data!"
+                );
+            }
+        },
     });
 
-    if (!isUnique) {
-      return "Topics must be unique! Please, check the entered data!";
+function getInputSelector(validationName) {
+    if (!validationName) {
+        return validationName;
     }
-  }
-});
+    let validationSelector = "input[data-foundation-validation^='";
+    return validationSelector.concat(validationName, "']");
+}
 
-$(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
-  selector: eventTypeSelector,
-  validate: function (el) {
-
-    let isUnique = true;
-
-    $("input".concat(eventTypeSelector)).each(function (indexInArray, typeInput) {
-      if (typeInput.id != el.id && isTopicEquals(typeInput.value, el.value)) {
-        isUnique = false;
-        return;
-      }
-    });
-
-    if (!isUnique) {
-      return "Type must be unique! Please, check the entered data!";
+function ucFirst(validationTitle) {
+    if (!validationTitle) {
+        return validationTitle;
     }
+    return validationTitle[0].toUpperCase() + validationTitle.slice(1);
+}
 
-  }
-});
-
-function isTopicEquals(str1, str2) {
-  return (str1.trim().toUpperCase() === str2.trim().toUpperCase())
+function isValueEquals(str1, str2) {
+    return str1.trim().toUpperCase() === str2.trim().toUpperCase();
 }

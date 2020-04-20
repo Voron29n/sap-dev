@@ -1,6 +1,5 @@
 package com.epam.sap.developers.core.models;
 
-import javax.jcr.RepositoryException;
 import java.util.List;
 
 public interface YouTube {
@@ -11,7 +10,7 @@ public interface YouTube {
 
     String getDescription();
 
-    List<String> getItemList() throws RepositoryException;
+    List<String> getItemList();
 
     boolean isOnlyVideo();
 

@@ -22,6 +22,16 @@
                             sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
                             sling:orderBefore="cloudservices">
                         <items jcr:primaryType="nt:unstructured">
+                            <include-client-create
+                                    cq:showOnCreate="{Boolean}true"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
+                                    categories="[sap.dev.template.events.validation.icon.class,sap.dev.validation.max.multifield,sap.dev.template.events.validation.topic]"/>
+                            <include-client-edit
+                                    cq:showOnCreate="{Boolean}false"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
+                                    categories="[sap.dev.template.events.disabled.exist.item]"/>
                             <column
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="granite/ui/components/coral/foundation/container">
@@ -31,11 +41,13 @@
                                             jcr:title="Event topics"
                                             sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
                                         <items jcr:primaryType="nt:unstructured">
-                                            <include-client
-                                                    cq:showOnCreate="{Boolean}true"
+                                            <inputgroup
                                                     jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
-                                                    categories="[sap.dev.template.events.validation.icon,sap.dev.validation.max.multifield,sap.dev.template.events.validation.topic]"/>
+                                                    sling:resourceType="granite/ui/components/coral/foundation/hyperlink"
+                                                    text="Please, check this link to select icon, then enter the icon number at textfield"
+                                                    href="https://fontawesome.com/icons"
+                                                    rel="details"
+                                                    target="_blank"/>
                                             <topics
                                                     validation="custom-multifield-max-6"
                                                     cq:showOnCreate="{Boolean}true"
@@ -44,32 +56,26 @@
                                                     composite="{Boolean}true"
                                                     fieldDescription="Click + to add a new item"
                                                     fieldLabel="Multifield collection"
-                                                    name="./multiCol">
+                                                    name="./multiCol"
+                                                    granite:class="coral-multifield-exist-disabled">
                                                 <field
                                                         jcr:primaryType="nt:unstructured"
                                                         sling:resourceType="granite/ui/components/coral/foundation/container"
                                                         name="./dropdownMultifield/eventTopics">
                                                     <items jcr:primaryType="nt:unstructured">
-                                                        <inputgroup
-                                                                jcr:primaryType="nt:unstructured"
-                                                                sling:resourceType="granite/ui/components/coral/foundation/hyperlink"
-                                                                text="Please, check this link to select icon, then enter the icon number at textfield"
-                                                                href="https://astronautweb.co/snippet/font-awesome/"
-                                                                rel="details"
-                                                                target="_blank"/>
-                                                        <href
+                                                        <icon-class
                                                                 cq:showOnCreate="{Boolean}true"
                                                                 validation="icon-number-field"
                                                                 jcr:primaryType="nt:unstructured"
                                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                                fieldLabel="Icons for topic"
-                                                                emptyText="Icon number some like: \\f000"
+                                                                fieldLabel="Icon for topic"
+                                                                emptyText="Icon class name..."
                                                                 required="{Boolean}true"
-                                                                name="./iconNumber"/>
+                                                                name="./iconClass"/>
                                                         <topics
                                                                 cq:showOnCreate="{Boolean}true"
                                                                 cq:hideOnEdit="{Boolean}false"
-                                                                validation="event-topic-field"
+                                                                validation="event-field-topic"
                                                                 jcr:primaryType="nt:unstructured"
                                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                 fieldDescription="Name of topic that the admin will see in the dialog at dropdown selector."
@@ -99,15 +105,10 @@
                                 <items jcr:primaryType="nt:unstructured">
                                     <section
                                             jcr:primaryType="nt:unstructured"
-                                            jcr:title="Event topics"
+                                            jcr:title="Event Types"
                                             sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
                                         <items jcr:primaryType="nt:unstructured">
-                                            <include-client
-                                                    cq:showOnCreate="{Boolean}true"
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
-                                                    categories="[sap.dev.template.events.validation.icon,sap.dev.validation.max.multifield]"/>
-                                            <topics
+                                            <types
                                                     validation="custom-multifield-max-6"
                                                     cq:showOnCreate="{Boolean}true"
                                                     jcr:primaryType="nt:unstructured"
@@ -116,31 +117,16 @@
                                                     fieldDescription="Click + to add a new item"
                                                     fieldLabel="Multifield collection"
                                                     name="./multiCol"
-                                                    granite:class="multifield-topic-item">
+                                                    granite:class="coral-multifield-exist-disabled">
                                                 <field
                                                         jcr:primaryType="nt:unstructured"
                                                         sling:resourceType="granite/ui/components/coral/foundation/container"
                                                         name="./dropdownMultifield/eventTypes">
                                                     <items jcr:primaryType="nt:unstructured">
-                                                        <inputgroup
-                                                                jcr:primaryType="nt:unstructured"
-                                                                sling:resourceType="granite/ui/components/coral/foundation/hyperlink"
-                                                                text="Please, check this link to select icon, then enter the icon number at textfield"
-                                                                href="https://astronautweb.co/snippet/font-awesome/"
-                                                                rel="details"
-                                                                target="_blank"/>
-                                                        <href
-                                                                cq:showOnCreate="{Boolean}true"
-                                                                validation="icon-number-field"
-                                                                jcr:primaryType="nt:unstructured"
-                                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                                fieldLabel="Icons for types"
-                                                                emptyText="Icon number some like: \\f000"
-                                                                name="./iconNumber"/>
                                                         <types
                                                                 cq:showOnCreate="{Boolean}true"
                                                                 cq:hideOnEdit="{Boolean}false"
-                                                                validation="event-type-field"
+                                                                validation="event-field-type"
                                                                 jcr:primaryType="nt:unstructured"
                                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                 fieldDescription="Name of type that the admin will see in the dialog at dropdown selector."
@@ -150,7 +136,7 @@
                                                                 name="./dropdownTitle"/>
                                                     </items>
                                                 </field>
-                                            </topics>
+                                            </types>
                                         </items>
                                     </section>
                                 </items>

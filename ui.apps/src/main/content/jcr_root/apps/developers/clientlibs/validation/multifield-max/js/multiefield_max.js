@@ -10,20 +10,8 @@ $(window).adaptTo("foundation-registry").register("foundation.validation.validat
     // variant with disable button
     if (el.items.length >= max) {
       addButton.setAttribute('disabled','')
-    } else if (el.items.length < max || addButton.hasAttribute('disabled')) {
+    } else if (el.items.length < max && addButton.hasAttribute('disabled')) {
       addButton.removeAttribute('disabled');
     }
-
-    // variant with alert 
-
-    // if (el.items.length > max){
-
-    //     // items added are more than allowed, return error
-    //     var ui = $(window).adaptTo("foundation-ui");
-    //      var item = el.items.last();
-    //      var result = item.remove();
-    //      ui.alert("Warning", "Maximum " + max + " items!", "notice");
-    //     return "Max allowed items is "+ max
-    // }
   }
 });

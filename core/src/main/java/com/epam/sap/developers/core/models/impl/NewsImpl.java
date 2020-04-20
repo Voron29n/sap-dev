@@ -7,7 +7,6 @@ import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Model(adaptables = SlingHttpServletRequest.class,

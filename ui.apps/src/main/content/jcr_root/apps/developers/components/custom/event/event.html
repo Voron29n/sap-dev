@@ -1,14 +1,13 @@
-<sly
-    data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
-    data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html"
-    data-sly-use.event="com.epam.sap.developers.core.models.Event"
-    data-sly-test.hasContent="${!event.equals}"
->
-    <i class="icon-cal"></i>
-    <span class="date">${event.eventDateStr}</span>
-    ${event.eventTitle @context='html'}
-    ${event.eventDescription}
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.event="com.epam.sap.developers.core.models.Event"
+     data-sly-test.hasContent="${!event.equals}">
+    <sly data-sly-call="${clientlib.css @ categories='sap.dev.custom.event.component.style'}"></sly>
+
+     <i class="${event.eventTopicIconClass}"></i>
+     <span class="date">${event.eventDateStr}</span>
+     ${event.eventTitle @context='html'}
+     <p data-sly-test="${event.eventDescription}">${event.eventDescription}</p>
+
 </sly>
-<sly
-    data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!hasContent}"
-></sly>
+<sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!hasContent}"></sly>

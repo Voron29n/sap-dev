@@ -17,8 +17,11 @@
 <html lang="en">
   <head>
     <title>${currentPage.title || currentPage.name}</title>
+    <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+         data-sly-call="${clientlib.css @ categories='SAP.developers.bootstrap.resp,SAP.developers.bootstrap,SAP.developers.base'}"/>
   </head>
   <body class="page">
-    <div data-sly-resource="par"></div>
+    <sly data-sly-include="/libs/wcm/core/components/init/init.jsp"/>
+    <div data-sly-resource="events"></div>
   </body>
 </html>

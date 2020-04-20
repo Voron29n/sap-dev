@@ -1,8 +1,6 @@
 package com.epam.sap.developers.core.services.impl;
 
-import com.epam.sap.developers.core.entities.SimpleLink;
 import com.epam.sap.developers.core.services.ColumnService;
-import com.epam.sap.developers.core.utils.SimpleLinkUtils;
 import org.osgi.service.component.annotations.Component;
 
 import java.util.ArrayList;
@@ -25,7 +23,7 @@ public class ColumnServiceImpl implements ColumnService {
     @Override
     public List<String> getColumnNodeNamesByNumberColumns(int numberColumns) {
         List<String> parNodeNamesList = new ArrayList<>();
-        for (int i = 1 ; i <= numberColumns; i++){
+        for (int i = 1; i <= numberColumns; i++) {
             parNodeNamesList.add(PAR_NODE_NAME_START + i);
         }
         return parNodeNamesList;

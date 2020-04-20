@@ -12,12 +12,12 @@ public class EventDropdownItemBean {
 
     @ValueMapValue
     @Default(values = "")
-    private String iconNumber;
+    private String iconClass;
     @ValueMapValue
     private String dropdownTitle;
 
-    public String getIconNumber() {
-        return iconNumber;
+    public String getIconClass() {
+        return iconClass;
     }
 
     public String getDropdownTitle() {

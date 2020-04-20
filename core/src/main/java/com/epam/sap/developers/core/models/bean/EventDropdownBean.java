@@ -20,8 +20,8 @@ public class EventDropdownBean {
     @Inject
     private List<Resource> eventTypes;
 
-    private Map<String,String> eventDropdownTopics;
-    private Map<String,String> eventDropdownTypes;
+    private Map<String, String> eventDropdownTopics;
+    private Map<String, String> eventDropdownTypes;
 
     @PostConstruct
     private void init() {
@@ -29,24 +29,24 @@ public class EventDropdownBean {
         eventDropdownTypes = convertEventTypesToList();
     }
 
-    public Map<String,String> getEventTopics() {
+    public Map<String, String> getEventTopics() {
         return eventDropdownTopics;
     }
 
-    public Map<String,String> getEventTypes() {
+    public Map<String, String> getEventTypes() {
         return eventDropdownTypes;
     }
 
     private Map<String, String> convertEventTopicsToList() {
         return (eventTopics == null || eventTopics.isEmpty()) ? null : eventTopics.stream()
                 .map(el -> el.adaptTo(EventDropdownItemBean.class))
-                .collect(Collectors.toMap(EventDropdownItemBean::getDropdownTitle, EventDropdownItemBean::getIconNumber));
+                .collect(Collectors.toMap(EventDropdownItemBean::getDropdownTitle, EventDropdownItemBean::getIconClass));
     }
 
 
-    private Map<String,String> convertEventTypesToList() {
+    private Map<String, String> convertEventTypesToList() {
         return (eventTypes == null || eventTypes.isEmpty()) ? null : eventTypes.stream()
                 .map(el -> el.adaptTo(EventDropdownItemBean.class))
-                .collect(Collectors.toMap(EventDropdownItemBean::getDropdownTitle, EventDropdownItemBean::getIconNumber));
+                .collect(Collectors.toMap(EventDropdownItemBean::getDropdownTitle, EventDropdownItemBean::getIconClass));
     }
 }

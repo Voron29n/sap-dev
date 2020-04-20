@@ -32,7 +32,8 @@ public class YouTubeServiceImpl implements YouTubeService {
             String youtubeVideoId = youtubeVideoUrl.substring(32);
             return YOUTUBE_EMBED_URL.concat(youtubeVideoId);
         } else {
-            return null;
+            logger.error("Youtube Video Url is invalid");
+            return youtubeVideoUrl;
         }
     }
 

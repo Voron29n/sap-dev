@@ -1,12 +1,8 @@
 package com.epam.sap.developers.core.models;
 
+import org.apache.sling.api.resource.LoginException;
+
 public interface HtlEventsDropdownDataStore {
 
-    String EVENT_TOPIC_DROPDOWN = "eventTopic";
-
-    String EVENT_TYPE_DROPDOWN = "eventType";
-
-    String PATH_TO_DROPDOWN = "/content/developers/aboutus/jcr:content/dropdownMultifield";
-
-    void init() throws Exception;
+    void init() throws LoginException;
 }

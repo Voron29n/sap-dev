@@ -13,11 +13,11 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="developers/components/totemplate/navbar">
         </nav>
-        <par
+        <events
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/foundation/components/parsys"
                 components="[developers/components/.*]">
-        </par>
+        </events>
         <footer
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="developers/components/totemplate/footer">

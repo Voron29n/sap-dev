@@ -5,13 +5,11 @@ import com.adobe.granite.ui.components.ds.SimpleDataSource;
 import com.adobe.granite.ui.components.ds.ValueMapResource;
 import com.epam.sap.developers.core.models.HtlEventsDropdownDataStore;
 import com.epam.sap.developers.core.models.bean.EventDropdownBean;
+import com.epam.sap.developers.core.services.EventsService;
 import org.apache.commons.collections.iterators.TransformIterator;
 import org.apache.jackrabbit.oak.commons.PathUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceMetadata;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ValueMap;
+import org.apache.sling.api.resource.*;
 import org.apache.sling.api.wrappers.ValueMapDecorator;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
@@ -28,7 +26,10 @@ import java.util.stream.Collectors;
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class HtlEventsDropdownDataStoreImpl implements HtlEventsDropdownDataStore {
 
-    @Inject
+    private static final String EVENT_TOPIC_DROPDOWN = "eventTopic";
+    private static final String EVENT_TYPE_DROPDOWN = "eventType";
+
+    @SlingObject
     private SlingHttpServletRequest request;
 
     @SlingObject
@@ -37,11 +38,13 @@ public class HtlEventsDropdownDataStoreImpl implements HtlEventsDropdownDataStor
     @SlingObject
     private Resource currentResource;
 
-    @Override
+    @Inject
+    private EventsService eventsService;
+
     @PostConstruct
-    public void init() throws Exception {
-        Resource dropdownResource = resolver.getResource(PATH_TO_DROPDOWN);
-        EventDropdownBean dropdownBean = dropdownResource.adaptTo(EventDropdownBean.class);
+    @Override
+    public void init() throws LoginException {
+        EventDropdownBean dropdownBean = eventsService.getEventDropdownBean();
 
         String dropdownFieldName = PathUtils.getName(currentResource.getPath());
 
@@ -69,7 +72,7 @@ public class HtlEventsDropdownDataStoreImpl implements HtlEventsDropdownDataStor
         if (dropdownFieldName.equals(EVENT_TYPE_DROPDOWN)) {
             return convertEventMapToDropdownMap(dropdownBean.getEventTypes());
         } else {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("No matches with select option");
         }
     }
 
@@ -77,15 +80,8 @@ public class HtlEventsDropdownDataStoreImpl implements HtlEventsDropdownDataStor
         return eventTypes.keySet()
                 .stream()
                 .collect(Collectors.toMap(
-                        e -> e.trim(),
-                        e -> createDropdownValue(e, eventTypes.get(e))
+                        String::trim,
+                        e -> e
                 ));
-    }
-
-    private String createDropdownValue(String topicTitle, String iconNumber) {
-        return topicTitle.toLowerCase()
-                .trim()
-                .replaceAll("\\s+", "-")
-                .concat("-" + iconNumber);
     }
 }

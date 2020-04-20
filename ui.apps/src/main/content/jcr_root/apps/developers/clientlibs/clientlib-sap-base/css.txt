@@ -2,3 +2,5 @@
 base.css
 fonts.css
 page.css
+all.min.css
+fontawesome.min.css

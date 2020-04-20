@@ -1,6 +1,5 @@
 package com.epam.sap.developers.core.utils;
 
-import jdk.internal.jline.internal.Nullable;
 import org.apache.jackrabbit.oak.commons.PathUtils;
 
 import java.util.regex.Matcher;
@@ -18,7 +17,7 @@ public class SapDevelopersPathUtils {
     /**
      * Return NULL if path not found
      */
-    @Nullable
+//    @Nullable
     public static String getPathByLevelRelativeToRootPath(String pagePath, int levelToCut) {
         if (PathUtils.isValid(pagePath) && levelToCut > 0) {
 
@@ -27,7 +26,7 @@ public class SapDevelopersPathUtils {
             if (matcher.find()) {
                 return pagePath.substring(matcher.start(), matcher.end());
             } else {
-                return null;
+                return pagePath;
             }
         } else {
             return pagePath;

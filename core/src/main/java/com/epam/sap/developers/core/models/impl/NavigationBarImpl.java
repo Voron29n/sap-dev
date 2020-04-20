@@ -7,6 +7,7 @@ import com.epam.sap.developers.core.entities.SimpleLink;
 import com.epam.sap.developers.core.models.NavigationBar;
 import com.epam.sap.developers.core.services.NavigationBarService;
 import com.epam.sap.developers.core.utils.SapDevelopersPathUtils;
+import com.epam.sap.developers.core.utils.ServiceUtils;
 import com.epam.sap.developers.core.utils.SimpleLinkUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -27,7 +28,7 @@ public class NavigationBarImpl implements NavigationBar {
 
     protected static final String RESOURCE_TYPE = "developers/components/totemplate/navbar";
     protected static final int LEVEL_OF_MAIN_PAGE = 2;
-    protected static final String DEFAULT_MAIN_PAGE_PATH = "/content/developers/uk/sap";
+    protected static final String DEFAULT_MAIN_PAGE_PATH = ServiceUtils.getCrxPath("content/developers/uk/sap");
 
     @ScriptVariable
     private Page currentPage;
@@ -41,7 +42,7 @@ public class NavigationBarImpl implements NavigationBar {
     private Page mainPage;
 
     @PostConstruct
-    protected void init() {
+    public void init() {
         PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
         String pathToMainPage = getMainPagePath(currentPage.getPath());
         mainPage = pageManager.getPage(pathToMainPage);

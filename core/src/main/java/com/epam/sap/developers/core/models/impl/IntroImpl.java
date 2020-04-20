@@ -8,6 +8,7 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
@@ -31,6 +32,10 @@ public class IntroImpl implements Intro {
     @SlingObject
     private Resource currentResource;
 
+    @Inject
+    @Via("resource")
+    private List<Resource> descriptionList;
+
     @ValueMapValue
     private String title;
 
@@ -43,8 +48,6 @@ public class IntroImpl implements Intro {
     @ValueMapValue
     private String fileReference;
 
-    @Inject
-    private List<Resource> descriptionList;
 
     @Override
     public String getIntroTitle() {
