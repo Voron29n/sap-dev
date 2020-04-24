@@ -15,7 +15,5 @@
 */-->
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
      data-sly-call="${clientlib.css @ categories='developers.base'}"/>
-<sly data-sly-resource="${'contexthub' @ resourceType='granite/contexthub/components/contexthub'}"
-     data-sly-call="${clientlib.css @ categories='SAP.developers.bootstrap.resp'}"
-     data-sly-call="${clientlib.css @ categories='SAP.developers.bootstrap'}"
-     data-sly-call="${clientlib.css @ categories='SAP.developers.base'}"/>
+<sly data-sly-resource="${'contexthub' @ resourceType='granite/contexthub/components/contexthub'}"/>
+<sly data-sly-call="${clientlib.css @ categories='SAP.developers.bootstrap.resp,SAP.developers.bootstrap,SAP.developers.base'}"/>

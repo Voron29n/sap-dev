@@ -44,7 +44,7 @@ public class EventsServiceImpl implements EventsService {
 
     @Activate
     @Modified
-    public void activate( EventsConfig config) {
+    public void activate(EventsConfig config) {
         this.rowSize = config.defaultRowSize();
     }
 
@@ -67,7 +67,7 @@ public class EventsServiceImpl implements EventsService {
     public List<EventsWrapper> getEventsWrapperByType() throws LoginException {
         Map<String, List<Event>> eventMap = getEventsByTypes();
         return eventMap.keySet().stream()
-                .map(e -> new EventsWrapper(e ,eventMap.get(e)))
+                .map(e -> new EventsWrapper(e, eventMap.get(e), true, this.rowSize))
                 .collect(Collectors.toList());
     }
 
@@ -75,7 +75,7 @@ public class EventsServiceImpl implements EventsService {
     public List<EventsWrapper> getEventsWrapperByTopic() throws LoginException {
         Map<String, List<Event>> eventMap = getEventsByTopics();
         return eventMap.keySet().stream()
-                .map(e -> new EventsWrapper(e ,eventMap.get(e)))
+                .map(e -> new EventsWrapper(e, eventMap.get(e), false, this.rowSize))
                 .collect(Collectors.toList());
     }
 
@@ -106,7 +106,7 @@ public class EventsServiceImpl implements EventsService {
         return eventsSubListByNumColumn(eventMap.get(topic), numColumn);
     }
 
-    //    @Nullable
+    //        @Nullable
     @Override
     public EventDropdownBean getEventDropdownBean() throws LoginException {
         ResourceResolver resolver = getResourceResolver();
@@ -117,14 +117,14 @@ public class EventsServiceImpl implements EventsService {
         return eventDropdownBean;
     }
 
-    private List<Event> eventsSubListByNumColumn(List<Event> eventList, int numColumn){
-        int fromIndex = rowSize * numColumn ;
-        fromIndex = fromIndex > eventList.size() ? rowSize * (numColumn - 1) : fromIndex ;
+    private List<Event> eventsSubListByNumColumn(List<Event> eventList, int numColumn) {
+        int fromIndex = rowSize * numColumn;
+        fromIndex = fromIndex > eventList.size() ? rowSize * (numColumn - 1) : fromIndex;
         int toIndex = Math.min(rowSize * (numColumn + 1), eventList.size());
         return eventList.subList(fromIndex, toIndex);
     }
 
-//    @Nullable
+    //    @Nullable
     private EventDropdownBean resourceAdaptToEventDropdownBean(ResourceResolver resolver) {
         Resource dropdownResource = resolver.getResource(PATH_TO_DROPDOWN);
         return dropdownResource != null ? dropdownResource.adaptTo(EventDropdownBean.class) : null;
@@ -148,15 +148,21 @@ public class EventsServiceImpl implements EventsService {
         return resolverFactory.getServiceResourceResolver(param);
     }
 
-    public class EventsWrapper{
+    public class EventsWrapper {
         private String title;
         private List<Event> eventList;
         private int numColumn;
+        private String iconClass;
+        private boolean isType;
+        private int rowSize;
 
-        public EventsWrapper(String title, List<Event> eventList) {
+        public EventsWrapper(String title, List<Event> eventList, boolean isType, int rowSize) {
             this.title = title;
             this.numColumn = (int) Math.ceil((double) eventList.size() / rowSize);
-            this.eventList = eventList.subList(0 , Math.min(rowSize, eventList.size()));
+            this.eventList = eventList.subList(0, Math.min(rowSize, eventList.size()));
+            this.iconClass = eventList.get(0).getEventTopicIconClass();
+            this.isType = isType;
+            this.rowSize = rowSize;
         }
 
         public String getTitle() {
@@ -169,6 +175,18 @@ public class EventsServiceImpl implements EventsService {
 
         public List<Event> getEventList() {
             return eventList;
+        }
+
+        public String getIconClass() {
+            return iconClass;
+        }
+
+        public boolean isType() {
+            return isType;
+        }
+
+        public int getRowSize() {
+            return rowSize;
         }
     }
 }

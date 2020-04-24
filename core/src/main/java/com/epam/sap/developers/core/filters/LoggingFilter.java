@@ -42,6 +42,10 @@ public class LoggingFilter implements Filter {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+    }
+
+    @Override
     public void doFilter(final ServletRequest request, final ServletResponse response,
                          final FilterChain filterChain) throws IOException, ServletException {
 
@@ -54,11 +58,8 @@ public class LoggingFilter implements Filter {
     }
 
     @Override
-    public void init(FilterConfig filterConfig) {
-    }
-
-    @Override
     public void destroy() {
     }
+
 
 }

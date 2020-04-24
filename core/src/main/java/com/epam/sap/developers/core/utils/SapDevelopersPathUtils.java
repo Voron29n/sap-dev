@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class SapDevelopersPathUtils {
 
-    private static final String ROOT_PAGE_PATH = "/content/developers";
+    private static final String ROOT_PAGE_PATH = ServiceUtils.getCrxPath("content/developers");
     private static final String PATTER_ONE_LEVEL = "/[^/]+";
 
     private SapDevelopersPathUtils() {

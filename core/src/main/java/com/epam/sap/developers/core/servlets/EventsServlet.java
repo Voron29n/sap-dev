@@ -27,7 +27,7 @@ import java.util.List;
 
 @Component(service = {Servlet.class})
 @SlingServletResourceTypes(
-        resourceTypes = "developers/components/custom/event",
+        resourceTypes = "developers/components/custom/events-listing",
         methods = HttpConstants.METHOD_GET,
         extensions = "json",
         selectors = "data")

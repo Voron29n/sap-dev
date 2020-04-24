@@ -22,17 +22,6 @@ public class ServiceUtils {
         return (path != null && !path.isEmpty()) ? "/" + path : path;
     }
 
-    public static String getStringWithHtmlIgnoreLinkChecker(String stringHtml){
-        if (isHtmlHasLink(stringHtml)){
-            return null;
-        }
-        return null;
-    }
-
-    private static boolean isHtmlHasLink(String stringHtml) {
-        return false;
-    }
-
     private static List<String> resourceListToStrList(List<Resource> resourceList, String propertyName) {
         return resourceList.stream()
                 .map(e -> e.adaptTo(ValueMap.class).get(propertyName, String.class))
