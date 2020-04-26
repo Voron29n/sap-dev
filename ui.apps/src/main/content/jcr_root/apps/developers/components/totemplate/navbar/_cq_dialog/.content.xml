@@ -13,11 +13,17 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="granite/ui/components/coral/foundation/container">
                 <items jcr:primaryType="nt:unstructured">
-                    <text
+                    <siteTitle
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                            fieldLabel="Text"
-                            name="./text"/>
+                            fieldLabel="Site Title"
+                            name="./siteTitle"/>
+                    <mainPagePath
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                            fieldLabel="Path to main path"
+                            rootPath="/content/developers"
+                            name="./mainPagePath"/>
                 </items>
             </column>
         </items>

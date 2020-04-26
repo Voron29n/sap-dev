@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface NavigationBar {
 
+    String getSiteTitle();
+
     SimpleLink getSimpleLinkOfMainPage();
 
     List<SimpleLink> getSecondLevelLinks();

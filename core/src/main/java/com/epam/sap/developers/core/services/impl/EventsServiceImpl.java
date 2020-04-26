@@ -30,10 +30,9 @@ import java.util.stream.StreamSupport;
 @Designate(ocd = EventsConfig.class)
 public class EventsServiceImpl implements EventsService {
 
+    public static final String DROPDOWN_MULTIFIELD_NODE = ServiceUtils.getCrxPath("dropdownMultifield");
     private static final String SERVICE_USER_NAME = "testuser";
-
-    private static final String PATH_TO_DROPDOWN = ServiceUtils.getCrxPath("content/developers/developers-events/jcr:content/dropdownMultifield");
-    private static final String PATH_TO_PAGE_WITH_EVENTS = ServiceUtils.getCrxPath("content/developers/developers-events/jcr:content/events");
+    private static final String PATH_TO_PAR_NODE_WITH_EVENTS = ServiceUtils.getCrxPath("jcr:content/events");
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -41,26 +40,17 @@ public class EventsServiceImpl implements EventsService {
     private ResourceResolverFactory resolverFactory;
 
     private int rowSize;
+    private String pathToPageWithEvents;
+
+    @Override
+    public void setPathToPageWithEvents(String pathToPageWithEvents) {
+        this.pathToPageWithEvents = pathToPageWithEvents.concat(PATH_TO_PAR_NODE_WITH_EVENTS);
+    }
 
     @Activate
     @Modified
     public void activate(EventsConfig config) {
         this.rowSize = config.defaultRowSize();
-    }
-
-    @Override
-    public List<Event> getAllEvents() throws LoginException {
-        ResourceResolver resolver = getResourceResolver();
-        List<Resource> eventResources = getListWithEventsResource(resolver);
-        List<Event> eventList = eventResources.stream()
-                .map(e -> e.adaptTo(Event.class))
-                .sorted(Comparator.comparing(event -> event != null ? event.getJcrCreated() : 0))
-                .collect(Collectors.toList());
-
-        if (!resolver.isLive()) {
-            resolver.close();
-        }
-        return eventList;
     }
 
     @Override
@@ -79,20 +69,6 @@ public class EventsServiceImpl implements EventsService {
                 .collect(Collectors.toList());
     }
 
-    @Override
-    public Map<String, List<Event>> getEventsByTypes() throws LoginException {
-        List<Event> eventList = getAllEvents();
-        return eventList.stream()
-                .collect(Collectors.groupingBy(Event::getEventType));
-    }
-
-    @Override
-    public Map<String, List<Event>> getEventsByTopics() throws LoginException {
-        List<Event> eventList = getAllEvents();
-        return eventList.stream()
-                .collect(Collectors.groupingBy(Event::getEventTopic));
-    }
-
 
     @Override
     public List<Event> getEventsColumnForType(String type, int numColumn) throws LoginException {
@@ -106,15 +82,19 @@ public class EventsServiceImpl implements EventsService {
         return eventsSubListByNumColumn(eventMap.get(topic), numColumn);
     }
 
-    //        @Nullable
     @Override
-    public EventDropdownBean getEventDropdownBean() throws LoginException {
+    public EventDropdownBean getEventDropdownBean(String pathToDropdown) throws LoginException {
         ResourceResolver resolver = getResourceResolver();
-        EventDropdownBean eventDropdownBean = resourceAdaptToEventDropdownBean(resolver);
+        EventDropdownBean eventDropdownBean = resourceAdaptToEventDropdownBean(resolver, pathToDropdown);
         if (!resolver.isLive()) {
             resolver.close();
         }
         return eventDropdownBean;
+    }
+
+    private EventDropdownBean resourceAdaptToEventDropdownBean(ResourceResolver resolver, String pathToDropdown) {
+        Resource dropdownResource = resolver.getResource(pathToDropdown);
+        return dropdownResource != null ? dropdownResource.adaptTo(EventDropdownBean.class) : null;
     }
 
     private List<Event> eventsSubListByNumColumn(List<Event> eventList, int numColumn) {
@@ -124,14 +104,8 @@ public class EventsServiceImpl implements EventsService {
         return eventList.subList(fromIndex, toIndex);
     }
 
-    //    @Nullable
-    private EventDropdownBean resourceAdaptToEventDropdownBean(ResourceResolver resolver) {
-        Resource dropdownResource = resolver.getResource(PATH_TO_DROPDOWN);
-        return dropdownResource != null ? dropdownResource.adaptTo(EventDropdownBean.class) : null;
-    }
-
     private List<Resource> getListWithEventsResource(ResourceResolver resolver) {
-        Resource parEventsResource = resolver.getResource(PATH_TO_PAGE_WITH_EVENTS);
+        Resource parEventsResource = resolver.getResource(this.pathToPageWithEvents);
         if (parEventsResource == null) {
             logger.error("Resource with events not exist");
             throw new IllegalArgumentException("Resource with events not exist");
@@ -141,14 +115,42 @@ public class EventsServiceImpl implements EventsService {
                 .collect(Collectors.toList());
     }
 
+    private Map<String, List<Event>> getEventsByTypes() throws LoginException {
+        List<Event> eventList = getAllEvents();
+        return eventList.stream()
+                .filter(el -> !el.isEquals())
+                .collect(Collectors.groupingBy(Event::getEventType));
+    }
+
+    private Map<String, List<Event>> getEventsByTopics() throws LoginException {
+        List<Event> eventList = getAllEvents();
+        return eventList.stream()
+                .filter(el -> !el.isEquals())
+                .collect(Collectors.groupingBy(Event::getEventTopic));
+    }
+
+    private List<Event> getAllEvents() throws LoginException {
+        ResourceResolver resolver = getResourceResolver();
+        List<Resource> eventResources = getListWithEventsResource(resolver);
+        List<Event> eventList = eventResources.stream()
+                .map(e -> e.adaptTo(Event.class))
+                .sorted(Comparator.comparing(event -> event != null ? event.getJcrCreated() : 0))
+                .collect(Collectors.toList());
+
+        if (!resolver.isLive()) {
+            resolver.close();
+        }
+        return eventList;
+    }
+
     private ResourceResolver getResourceResolver() throws LoginException {
         Map<String, Object> param = new HashMap<>();
         param.put(ResourceResolverFactory.SUBSERVICE, SERVICE_USER_NAME);
 
         return resolverFactory.getServiceResourceResolver(param);
     }
-
     public class EventsWrapper {
+
         private String title;
         private List<Event> eventList;
         private int numColumn;

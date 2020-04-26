@@ -42,6 +42,8 @@ public class EventsServlet extends SlingSafeMethodsServlet {
     private static final String VIEW_BY_TOPIC_VAL = "topic";
     private static final String VIEW_BY_TYPE_VAL = "type";
 
+    private static final String PROPERTY_WITH_PATH_TO_PAGE_WITH_EVENTS = "pathToPageWithEvents";
+
     @Reference
     private EventsService eventsService;
 
@@ -56,6 +58,8 @@ public class EventsServlet extends SlingSafeMethodsServlet {
         String paramTitle = req.getParameter(TITLE_PROP);
         String paramColNum = req.getParameter(COLUMN_NUMBER_PROP);
 
+        String pathToPageWithEvents = req.getResource().getValueMap().get(PROPERTY_WITH_PATH_TO_PAGE_WITH_EVENTS, String.class);
+        eventsService.setPathToPageWithEvents(pathToPageWithEvents);
 
         try {
             if (paramViewBy != null && paramTitle == null) {

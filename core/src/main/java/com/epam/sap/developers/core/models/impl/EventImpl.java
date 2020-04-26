@@ -3,18 +3,23 @@ package com.epam.sap.developers.core.models.impl;
 import com.epam.sap.developers.core.models.Event;
 import com.epam.sap.developers.core.models.bean.EventDropdownBean;
 import com.epam.sap.developers.core.services.EventsService;
+import com.epam.sap.developers.core.services.impl.EventsServiceImpl;
 import com.epam.sap.developers.core.utils.ModelUtils;
+import org.apache.jackrabbit.oak.commons.PathUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import java.util.Date;
+
+import static com.epam.sap.developers.core.services.impl.EventsServiceImpl.DROPDOWN_MULTIFIELD_NODE;
 
 @Model(adaptables = {SlingHttpServletRequest.class, Resource.class},
         adapters = {Event.class},
@@ -23,6 +28,9 @@ import java.util.Date;
 public class EventImpl implements Event {
 
     protected static final String RESOURCE_TYPE = "developers/components/custom/event";
+
+    @SlingObject
+    private Resource currentResource;
 
     @Inject
     private EventsService eventsService;
@@ -93,8 +101,9 @@ public class EventImpl implements Event {
     }
 
     private String getIconClassFromTopic() throws LoginException {
+        String pathToDropdown = PathUtils.getAncestorPath(currentResource.getPath(), 2).concat(DROPDOWN_MULTIFIELD_NODE);
         if (eventTopic != null) {
-            EventDropdownBean bean = eventsService.getEventDropdownBean();
+            EventDropdownBean bean = eventsService.getEventDropdownBean(pathToDropdown);
             return bean.getEventTopics().get(eventTopic);
         }
         return null;

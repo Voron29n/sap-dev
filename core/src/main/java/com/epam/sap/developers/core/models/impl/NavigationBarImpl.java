@@ -15,6 +15,7 @@ import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -39,14 +40,24 @@ public class NavigationBarImpl implements NavigationBar {
     @Inject
     private NavigationBarService navigationBarService;
 
+    @ValueMapValue
+    private String siteTitle;
+    @ValueMapValue
+    private String mainPagePath;
+
     private Page mainPage;
 
     @PostConstruct
     public void init() {
         PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
-        String pathToMainPage = getMainPagePath(currentPage.getPath());
+        String pathToMainPage = mainPagePath != null ? mainPagePath : getMainPagePath(currentPage.getPath());
         mainPage = pageManager.getPage(pathToMainPage);
         getSimpleLinkOfMainPage();
+    }
+
+    @Override
+    public String getSiteTitle() {
+        return siteTitle;
     }
 
     /**

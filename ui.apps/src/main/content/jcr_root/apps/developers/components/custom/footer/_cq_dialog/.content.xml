@@ -1,65 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-          xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
           xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
           jcr:primaryType="nt:unstructured"
-          jcr:title="Page"
-          sling:resourceType="cq/gui/components/authoring/dialog">
+          jcr:title="Column Component Properties"
+          sling:resourceType="cq/gui/components/authoring/dialog"
+          extraClientlibs="[sap.dev.template.footer.social.media,sap.dev.validation.max.multifield,sap.dev.template.footer.links]">
     <content
-            jcr:primaryType="nt:unstructured">
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
         <items jcr:primaryType="nt:unstructured">
             <tabs
-                    jcr:primaryType="nt:unstructured">
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                    maximized="{Boolean}true">
                 <items jcr:primaryType="nt:unstructured">
-                    <socialmedia
+                    <social-media
                             jcr:primaryType="nt:unstructured"
-                            sling:hideResource="{Boolean}true">
-                    </socialmedia>
-                    <footerPage
-                            cq:showOnCreate="{Boolean}true"
-                            jcr:primaryType="nt:unstructured"
-                            jcr:title="Footer Follow Us Section"
-                            sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
-                            sling:orderBefore="cloudservices">
+                            jcr:title="Social Media"
+                            sling:resourceType="granite/ui/components/coral/foundation/container">
                         <items jcr:primaryType="nt:unstructured">
-                            <section
+                            <columns
                                     jcr:primaryType="nt:unstructured"
-                                    jcr:title="Select the Footer"
-                                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
                                 <items jcr:primaryType="nt:unstructured">
-                                    <include-client
-                                            cq:showOnCreate="{Boolean}true"
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
-                                            js="cq.authoring.dialog"/>
-                                    <footer-select-section
-                                            cq:showOnCreate="{Boolean}true"
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                                            fieldLabel="Type of search"
-                                            name="./dropdown"
-                                            granite:class="cq-dialog-dropdown-showhide">
-                                        <granite:data
-                                                jcr:primaryType="nt:unstructured"
-                                                cq-dialog-dropdown-showhide-target=".showhide"/>
-                                        <items jcr:primaryType="cq:WidgetCollection">
-                                            <footer-social-media
-                                                    jcr:primaryType="nt:unstructured"
-                                                    text="Footer Social Media"
-                                                    selected="{Boolean}true"
-                                                    value="footer-social-media"/>
-                                            <footer-copyright
-                                                    jcr:primaryType="nt:unstructured"
-                                                    text="Footer Copyright"
-                                                    value="footer-copyright"/>
-                                            <footer-links
-                                                    jcr:primaryType="nt:unstructured"
-                                                    text="Footer Links"
-                                                    value="footer-links"/>
-                                        </items>
-                                    </footer-select-section>
                                     <footer-social-media-container
-                                            cq:showOnCreate="{Boolean}true"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/container"
                                             granite:class="showhide">
@@ -72,27 +38,19 @@
                                                     jcr:title="Foolow Us Footer"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
                                                 <items jcr:primaryType="nt:unstructured">
-                                                    <include-client
-                                                            cq:showOnCreate="{Boolean}true"
-                                                            jcr:primaryType="nt:unstructured"
-                                                            sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
-                                                            js="sap.dev.template.footer.social.media"/>
                                                     <inputgroup
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/text"
                                                             text="Enable user sharing for"/>
                                                     <field
-                                                            cq:showOnCreate="{Boolean}true"
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
                                                         <items jcr:primaryType="nt:unstructured">
                                                             <facebook
-                                                                    cq:showOnCreate="{Boolean}true"
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/foundation/container">
                                                                 <items jcr:primaryType="nt:unstructured">
                                                                     <checkbox
-                                                                            cq:showOnCreate="{Boolean}true"
                                                                             jcr:primaryType="nt:unstructured"
                                                                             sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
                                                                             fieldDescription="Facebook link in footer"
@@ -105,13 +63,11 @@
                                                                                 cq-dialog-checkbox-showhide-facebook-target=".button-facebook-showhide-target"/>
                                                                     </checkbox>
                                                                     <inputLink
-                                                                            cq:showOnCreate="{Boolean}true"
                                                                             jcr:primaryType="nt:unstructured"
                                                                             sling:resourceType="granite/ui/components/foundation/container"
                                                                             granite:class="button-facebook-showhide-target">
                                                                         <items jcr:primaryType="nt:unstructured">
                                                                             <facebookLink
-                                                                                    cq:showOnCreate="{Boolean}true"
                                                                                     jcr:primaryType="nt:unstructured"
                                                                                     sling:resourceType="granite/ui/components/foundation/form/textfield"
                                                                                     fieldLabel="Link to facebook account"
@@ -121,12 +77,11 @@
                                                                 </items>
                                                             </facebook>
                                                             <instagram
-                                                                    cq:showOnCreate="{Boolean}true"
+
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/foundation/container">
                                                                 <items jcr:primaryType="nt:unstructured">
                                                                     <checkbox
-                                                                            cq:showOnCreate="{Boolean}true"
                                                                             jcr:primaryType="nt:unstructured"
                                                                             sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
                                                                             fieldDescription="Instagram link in footer"
@@ -139,13 +94,11 @@
                                                                                 cq-dialog-checkbox-showhide-instagram-target=".button-instagram-showhide-target-custom"/>
                                                                     </checkbox>
                                                                     <inputLink
-                                                                            cq:showOnCreate="{Boolean}true"
                                                                             jcr:primaryType="nt:unstructured"
                                                                             sling:resourceType="granite/ui/components/foundation/container"
                                                                             granite:class="button-instagram-showhide-target-custom">
                                                                         <items jcr:primaryType="nt:unstructured">
                                                                             <instagramLink
-                                                                                    cq:showOnCreate="{Boolean}true"
                                                                                     jcr:primaryType="nt:unstructured"
                                                                                     sling:resourceType="granite/ui/components/foundation/form/textfield"
                                                                                     fieldLabel="Link to instagram account"
@@ -155,12 +108,10 @@
                                                                 </items>
                                                             </instagram>
                                                             <linkedin
-                                                                    cq:showOnCreate="{Boolean}true"
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/foundation/container">
                                                                 <items jcr:primaryType="nt:unstructured">
                                                                     <checkbox
-                                                                            cq:showOnCreate="{Boolean}true"
                                                                             jcr:primaryType="nt:unstructured"
                                                                             sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
                                                                             fieldDescription="LinkedIn in footer"
@@ -173,13 +124,11 @@
                                                                                 cq-dialog-checkbox-showhide-linkedin-target=".button-linkedin-showhide-target"/>
                                                                     </checkbox>
                                                                     <inputLink
-                                                                            cq:showOnCreate="{Boolean}true"
                                                                             jcr:primaryType="nt:unstructured"
                                                                             sling:resourceType="granite/ui/components/foundation/container"
                                                                             granite:class="button-linkedin-showhide-target">
                                                                         <items jcr:primaryType="nt:unstructured">
                                                                             <linkedinLink
-                                                                                    cq:showOnCreate="{Boolean}true"
                                                                                     jcr:primaryType="nt:unstructured"
                                                                                     sling:resourceType="granite/ui/components/foundation/form/textfield"
                                                                                     fieldLabel="Link to LinkedIn account"
@@ -189,12 +138,10 @@
                                                                 </items>
                                                             </linkedin>
                                                             <twitter
-                                                                    cq:showOnCreate="{Boolean}true"
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/foundation/container">
                                                                 <items jcr:primaryType="nt:unstructured">
                                                                     <checkbox
-                                                                            cq:showOnCreate="{Boolean}true"
                                                                             jcr:primaryType="nt:unstructured"
                                                                             sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
                                                                             fieldDescription="Twitter in footer"
@@ -207,13 +154,11 @@
                                                                                 cq-dialog-checkbox-showhide-twitter-target=".button-twitter-showhide-target"/>
                                                                     </checkbox>
                                                                     <inputLink
-                                                                            cq:showOnCreate="{Boolean}true"
                                                                             jcr:primaryType="nt:unstructured"
                                                                             sling:resourceType="granite/ui/components/foundation/container"
                                                                             granite:class="button-twitter-showhide-target">
                                                                         <items jcr:primaryType="nt:unstructured">
                                                                             <twitterLink
-                                                                                    cq:showOnCreate="{Boolean}true"
                                                                                     jcr:primaryType="nt:unstructured"
                                                                                     sling:resourceType="granite/ui/components/foundation/form/textfield"
                                                                                     fieldLabel="Link to twitter account"
@@ -223,12 +168,10 @@
                                                                 </items>
                                                             </twitter>
                                                             <youtube
-                                                                    cq:showOnCreate="{Boolean}true"
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/foundation/container">
                                                                 <items jcr:primaryType="nt:unstructured">
                                                                     <checkbox
-                                                                            cq:showOnCreate="{Boolean}true"
                                                                             jcr:primaryType="nt:unstructured"
                                                                             sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
                                                                             fieldDescription="YouTube in footer"
@@ -241,13 +184,11 @@
                                                                                 cq-dialog-checkbox-showhide-youtube-target=".button-youtube-showhide-target"/>
                                                                     </checkbox>
                                                                     <inputLink
-                                                                            cq:showOnCreate="{Boolean}true"
                                                                             jcr:primaryType="nt:unstructured"
                                                                             sling:resourceType="granite/ui/components/foundation/container"
                                                                             granite:class="button-youtube-showhide-target">
                                                                         <items jcr:primaryType="nt:unstructured">
                                                                             <youtubeLink
-                                                                                    cq:showOnCreate="{Boolean}true"
                                                                                     jcr:primaryType="nt:unstructured"
                                                                                     sling:resourceType="granite/ui/components/foundation/form/textfield"
                                                                                     fieldLabel="Link to youtube account"
@@ -257,12 +198,10 @@
                                                                 </items>
                                                             </youtube>
                                                             <github
-                                                                    cq:showOnCreate="{Boolean}true"
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/foundation/container">
                                                                 <items jcr:primaryType="nt:unstructured">
                                                                     <checkbox
-                                                                            cq:showOnCreate="{Boolean}true"
                                                                             jcr:primaryType="nt:unstructured"
                                                                             sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
                                                                             fieldDescription="GitHub in footer"
@@ -276,13 +215,11 @@
                                                                                 cq-dialog-checkbox-showhide-github-target=".button-github-showhide-target"/>
                                                                     </checkbox>
                                                                     <inputLink
-                                                                            cq:showOnCreate="{Boolean}true"
                                                                             jcr:primaryType="nt:unstructured"
                                                                             sling:resourceType="granite/ui/components/foundation/container"
                                                                             granite:class="button-github-showhide-target">
                                                                         <items jcr:primaryType="nt:unstructured">
                                                                             <githubLink
-                                                                                    cq:showOnCreate="{Boolean}true"
                                                                                     jcr:primaryType="nt:unstructured"
                                                                                     sling:resourceType="granite/ui/components/foundation/form/textfield"
                                                                                     fieldLabel="Link to GitHub account"
@@ -297,8 +234,22 @@
                                             </footer-section>
                                         </items>
                                     </footer-social-media-container>
+                                </items>
+                            </columns>
+                        </items>
+                    </social-media>
+                    <copyright
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Copyright"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}false">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
                                     <footer-copyright-container
-                                            cq:showOnCreate="{Boolean}true"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/container"
                                             granite:class="showhide">
@@ -311,13 +262,7 @@
                                                     jcr:title="Footer Copyright Links"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
                                                 <items jcr:primaryType="nt:unstructured">
-                                                    <include-client
-                                                            cq:showOnCreate="{Boolean}true"
-                                                            jcr:primaryType="nt:unstructured"
-                                                            sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
-                                                            js="sap.dev.validation.max.multifield"/>
                                                     <multifieldcollection
-                                                            cq:showOnCreate="{Boolean}true"
                                                             validation="custom-multifield-max-8"
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
@@ -331,14 +276,12 @@
                                                                 name="./copyrightLinks">
                                                             <items jcr:primaryType="nt:unstructured">
                                                                 <linktitle
-                                                                        cq:showOnCreate="{Boolean}true"
                                                                         jcr:primaryType="nt:unstructured"
                                                                         sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                         fieldDescription="Name of copyright link that users will see on the footer."
                                                                         fieldLabel="Title of a link"
                                                                         name="./linkTitle"/>
                                                                 <linkurl
-                                                                        cq:showOnCreate="{Boolean}true"
                                                                         jcr:primaryType="nt:unstructured"
                                                                         sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                         fieldDescription="URL of copyright link."
@@ -351,8 +294,22 @@
                                             </footer-section>
                                         </items>
                                     </footer-copyright-container>
+                                </items>
+                            </columns>
+                        </items>
+                    </copyright>
+                    <footer-links
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Copyright"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}false">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
                                     <footer-links-container
-                                            cq:showOnCreate="{Boolean}true"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/container"
                                             granite:class="showhide">
@@ -365,14 +322,8 @@
                                                     jcr:title="Footer Links"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
                                                 <items jcr:primaryType="nt:unstructured">
-                                                    <include-client
-                                                            cq:showOnCreate="{Boolean}true"
-                                                            jcr:primaryType="nt:unstructured"
-                                                            sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
-                                                            js="sap.dev.validation.max.multifield,sap.dev.template.footer.links"/>
                                                     <multifieldcollection
-                                                            cq:showOnCreate="{Boolean}true"
-                                                            validation="multifield-footer-links-max-4"
+                                                            validation="footer-multifield-topic-max-4"
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
                                                             composite="{Boolean}true"
@@ -385,15 +336,13 @@
                                                                 name="./footerLinks">
                                                             <items jcr:primaryType="nt:unstructured">
                                                                 <linktitle
-                                                                        cq:showOnCreate="{Boolean}true"
                                                                         jcr:primaryType="nt:unstructured"
                                                                         sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                         fieldDescription="Name of topic that the admin will see in the dialog at drop down optional."
                                                                         fieldLabel="Title of topic"
                                                                         name="./topicTitle"/>
                                                                 <multifieldcollection
-                                                                        cq:showOnCreate="{Boolean}true"
-                                                                        validation="multifield-footer-links-topic-max-8"
+                                                                        validation="custom-multifield-max-8"
                                                                         jcr:primaryType="nt:unstructured"
                                                                         sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
                                                                         composite="{Boolean}true"
@@ -406,14 +355,12 @@
                                                                             name="./.">
                                                                         <items jcr:primaryType="nt:unstructured">
                                                                             <linktitle
-                                                                                    cq:showOnCreate="{Boolean}true"
                                                                                     jcr:primaryType="nt:unstructured"
                                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                                     fieldDescription="Name of topic that the admin will see in the dialog at drop down optional."
                                                                                     fieldLabel="Title of a link"
                                                                                     name="./linkTitle"/>
                                                                             <linkurl
-                                                                                    cq:showOnCreate="{Boolean}true"
                                                                                     jcr:primaryType="nt:unstructured"
                                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                                     fieldDescription="Name of topic that the admin will see in the dialog at drop down optional."
@@ -430,9 +377,9 @@
                                         </items>
                                     </footer-links-container>
                                 </items>
-                            </section>
+                            </columns>
                         </items>
-                    </footerPage>
+                    </footer-links>
                 </items>
             </tabs>
         </items>

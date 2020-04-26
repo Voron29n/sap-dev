@@ -1,6 +1,6 @@
 <div data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
      data-sly-use.navigationBar="com.epam.sap.developers.core.models.NavigationBar"
-     data-sly-call="${clientlib.css @ categories='SAP.developer.structure.navbar'}"
+     data-sly-call="${clientlib.css @ categories='SAP.developers.bootstrap.resp,SAP.developers.bootstrap,SAP.developers.base,SAP.developer.structure.navbar'}"
      data-sly-test.mainPageData="${navigationBar.simpleLinkOfMainPage}"></div>
 
 <div class="custom_navbar">
@@ -13,7 +13,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="brand" href="${mainPageData.linkURL @extension='html'}"><span class="sap">SAP</span>
-                    Developers</a>
+                    ${navigationBar.siteTitle}</a>
                 <div class="nav-collapse collapse pull-right">
                     <ul class="nav">
                         <li class="${mainPageData.cssClass}">
@@ -33,4 +33,7 @@
         </div>
     </div>
 </div>
+
+
+
 <div data-sly-call="${clientlib.js @ categories='SAP.developers.bootstrap,SAP.developers.bootstrap.resp,SAP.developer.structure.navbar'}"></div>

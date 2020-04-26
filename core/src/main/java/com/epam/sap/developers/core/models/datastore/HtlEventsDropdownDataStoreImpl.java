@@ -7,6 +7,8 @@ import com.day.cq.wcm.api.Page;
 import com.epam.sap.developers.core.models.HtlEventsDropdownDataStore;
 import com.epam.sap.developers.core.models.bean.EventDropdownBean;
 import com.epam.sap.developers.core.services.EventsService;
+import com.epam.sap.developers.core.services.impl.EventsServiceImpl;
+import com.epam.sap.developers.core.utils.ServiceUtils;
 import org.apache.commons.collections.iterators.TransformIterator;
 import org.apache.jackrabbit.oak.commons.PathUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -22,6 +24,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static com.epam.sap.developers.core.services.impl.EventsServiceImpl.*;
+
 @Model(adaptables = SlingHttpServletRequest.class,
         adapters = HtlEventsDropdownDataStore.class,
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
@@ -29,6 +33,8 @@ public class HtlEventsDropdownDataStoreImpl implements HtlEventsDropdownDataStor
 
     private static final String EVENT_TOPIC_DROPDOWN = "eventTopic";
     private static final String EVENT_TYPE_DROPDOWN = "eventType";
+
+    //private static final String DROPDOWN_MULTIFIELD_NODE = ServiceUtils.getCrxPath("dropdownMultifield");
 
     @SlingObject
     private SlingHttpServletRequest request;
@@ -45,7 +51,12 @@ public class HtlEventsDropdownDataStoreImpl implements HtlEventsDropdownDataStor
     @PostConstruct
     @Override
     public void init() throws LoginException {
-        EventDropdownBean dropdownBean = eventsService.getEventDropdownBean();
+
+        String pathToComponent = request.getRequestPathInfo().getSuffix();
+
+        String pathToDropdown = PathUtils.getAncestorPath(pathToComponent, 2).concat(DROPDOWN_MULTIFIELD_NODE);
+
+        EventDropdownBean dropdownBean = eventsService.getEventDropdownBean(pathToDropdown);
 
         String dropdownFieldName = PathUtils.getName(currentResource.getPath());
 

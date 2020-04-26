@@ -6,17 +6,12 @@ import com.epam.sap.developers.core.services.impl.EventsServiceImpl.EventsWrappe
 import org.apache.sling.api.resource.LoginException;
 
 import java.util.List;
-import java.util.Map;
 
 public interface EventsService {
 
-    EventDropdownBean getEventDropdownBean() throws LoginException;
+    EventDropdownBean getEventDropdownBean(String pathToPage) throws LoginException;
 
-    List<Event> getAllEvents() throws LoginException;
-
-    Map<String, List<Event>> getEventsByTypes() throws LoginException;
-
-    Map<String, List<Event>> getEventsByTopics() throws LoginException;
+    void setPathToPageWithEvents(String pathToPageWithEvents);
 
     List<Event> getEventsColumnForTopic(String topic, int numColumn) throws LoginException;
 

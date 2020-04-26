@@ -1,6 +1,7 @@
 Vue.component("view-by", {
     props: {
         servletUrl: String,
+        hasContent: Boolean
     },
     data() {
         return {
@@ -27,7 +28,7 @@ Vue.component("view-by", {
         this.$root.updateAfterServletUrlExist();
     },
     template: 
-        '<div class="navbar">' +
+        '<div class="navbar" v-if="hasContent">' +
         '<div class="navbar-inner">' +
         '<span class="brand">View By:</span>' +
         '<ul class="nav">' +
@@ -200,3 +201,4 @@ var app = new Vue({
         },
     },
 });
+
