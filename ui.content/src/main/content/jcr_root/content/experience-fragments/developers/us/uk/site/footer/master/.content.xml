@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
+    <jcr:content
+            cq:tags="[]"
+            cq:template="/conf/developers/settings/wcm/templates/xf-web-variation"
+            cq:xfMasterVariation="{Boolean}true"
+            cq:xfVariantType="web"
+            jcr:primaryType="cq:PageContent"
+            jcr:title="Footer"
+            sling:resourceType="developers/components/structure/xfpage">
+        <root
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="developers/components/content/container"
+                layout="responsiveGrid">
+            <footer
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="developers/components/custom/footer">
+                <socialMedia
+                        jcr:primaryType="nt:unstructured">
+                    <item0
+                            jcr:primaryType="nt:unstructured"
+                            mediaIcon="fab fa-instagram"
+                            mediaTitle="Instagram"
+                            mediaUrl="#"
+                            mediaUrlTarget="_blank"/>
+                    <item1
+                            jcr:primaryType="nt:unstructured"
+                            mediaIcon="fab fa-twitter"
+                            mediaTitle="Twitter"
+                            mediaUrl="#"
+                            mediaUrlTarget="_blank"/>
+                    <item2
+                            jcr:primaryType="nt:unstructured"
+                            mediaIcon="fab fa-linkedin-in"
+                            mediaTitle="Linked-in"
+                            mediaUrl="#"
+                            mediaUrlTarget="_blank"/>
+                    <item3
+                            jcr:primaryType="nt:unstructured"
+                            mediaIcon="none"
+                            mediaTitle="Follow Developers"
+                            mediaUrl="#"
+                            mediaUrlTarget="_blank"/>
+                </socialMedia>
+                <copyrightLinks
+                        jcr:primaryType="nt:unstructured">
+                    <item0
+                            jcr:primaryType="nt:unstructured"
+                            linkTitle="Site Index"
+                            linkUrl="#"
+                            linkUrlTarget="_blank"/>
+                    <item1
+                            jcr:primaryType="nt:unstructured"
+                            linkTitle="Contact Us"
+                            linkUrl="#"
+                            linkUrlTarget="_blank"/>
+                    <item2
+                            jcr:primaryType="nt:unstructured"
+                            linkTitle="SAP Help Portal"
+                            linkUrl="#"
+                            linkUrlTarget="_blank"/>
+                    <item3
+                            jcr:primaryType="nt:unstructured"
+                            linkTitle=""
+                            linkUrl="#"
+                            linkUrlTarget="_blank"/>
+                    <item4
+                            jcr:primaryType="nt:unstructured"
+                            linkTitle="Privacy"
+                            linkUrl="#"
+                            linkUrlTarget="_blank"/>
+                </copyrightLinks>
+                <footerLinks
+                        jcr:primaryType="nt:unstructured">
+                    <item0
+                            jcr:primaryType="nt:unstructured"
+                            topicTitle="Model">
+                        <topicItems
+                                jcr:primaryType="nt:unstructured">
+                            <item0
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="SAP Developer Center for Mobile"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                            <item1
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="SAP Mobile apps Partner Program"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                            <item2
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="Youtube channel"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                            <item3
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="SAP Mobile Academy"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                            <item4
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="Tutorials"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                            <item5
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="Community"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                            <item6
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="SAP Mobile Apps Store"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                        </topicItems>
+                    </item0>
+                    <item1
+                            jcr:primaryType="nt:unstructured"
+                            topicTitle="Database">
+                        <topicItems
+                                jcr:primaryType="nt:unstructured">
+                            <item0
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="Free 30-Day Trial"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                            <item1
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="Developer Edition"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                            <item2
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="Developer Center"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                            <item3
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="Documentation"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                            <item4
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="The Road to HANA"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                            <item5
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="SAP HANA Academy"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                        </topicItems>
+                    </item1>
+                    <item2
+                            jcr:primaryType="nt:unstructured"
+                            topicTitle="Cloud">
+                        <topicItems
+                                jcr:primaryType="nt:unstructured">
+                            <item0
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="Free Developer License"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                            <item1
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="SAP HANA Cloud Developer Center"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                            <item2
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="Developer Guide"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                            <item3
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="Release Notes"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                            <item4
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="Developer Blogs"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                            <item5
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="Partner Program"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                        </topicItems>
+                    </item2>
+                    <item3
+                            jcr:primaryType="nt:unstructured"
+                            topicTitle="Other">
+                        <topicItems
+                                jcr:primaryType="nt:unstructured">
+                            <item0
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="SAP HANA Cloud Developer Center"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                            <item1
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="Developer Guide"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                            <item2
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="Blogs"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                            <item3
+                                    jcr:primaryType="nt:unstructured"
+                                    linkTitle="SAP NetWeaver Gateway Connectivity Addon for Spring Roo"
+                                    linkUrl="#"
+                                    linkUrlTarget="_blank"/>
+                        </topicItems>
+                    </item3>
+                </footerLinks>
+            </footer>
+        </root>
+    </jcr:content>
+</jcr:root>

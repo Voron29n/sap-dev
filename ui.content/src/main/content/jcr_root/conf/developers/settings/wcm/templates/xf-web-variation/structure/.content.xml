@@ -5,10 +5,10 @@
         cq:deviceGroups="[mobile/groups/responsive]"
         cq:template="/conf/developers/settings/wcm/templates/xf-web-variation"
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="developers/components/page">
+        sling:resourceType="developers/components/structure/page">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="developers/components/container"
+            sling:resourceType="developers/components/content/container"
             editable="{Boolean}true"/>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">

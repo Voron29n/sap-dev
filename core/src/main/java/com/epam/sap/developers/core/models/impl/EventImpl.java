@@ -3,7 +3,6 @@ package com.epam.sap.developers.core.models.impl;
 import com.epam.sap.developers.core.models.Event;
 import com.epam.sap.developers.core.models.bean.EventDropdownBean;
 import com.epam.sap.developers.core.services.EventsService;
-import com.epam.sap.developers.core.services.impl.EventsServiceImpl;
 import com.epam.sap.developers.core.utils.ModelUtils;
 import org.apache.jackrabbit.oak.commons.PathUtils;
 import org.apache.sling.api.SlingHttpServletRequest;

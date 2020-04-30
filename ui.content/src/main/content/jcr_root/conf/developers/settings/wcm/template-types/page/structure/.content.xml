@@ -5,13 +5,13 @@
         cq:deviceGroups="[/etc/mobile/groups/responsive]"
         cq:template="/conf/developers/settings/wcm/templates/page-content"
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="developers/components/page">
+        sling:resourceType="developers/components/structure/page">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="developers/components/container">
+            sling:resourceType="developers/components/content/container">
             <container
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="developers/components/container"
+                sling:resourceType="developers/components/content/container"
                 editable="{Boolean}true"
                 layout="responsiveGrid"/>
         </root>

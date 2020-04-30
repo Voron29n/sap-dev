@@ -3,7 +3,7 @@
      data-sly-call="${clientlib.css @ categories='sap.dev.custom.event.listing'}"
      data-sly-test.hasContent="${properties.pathToPageWithEvents}"></sly>
     <div id="events-listing">
-        <view-by servlet-url=${resource.path} has-content=${hasContent.isEmpty}></view-by>
+        <view-by servlet-url=${resource.path} page-with-events-path=${properties.pathToPageWithEvents}></view-by>
         <event-listing :event-list="eventList"></event-listing>
     </div>
     <sly data-sly-call="${clientlib.js @ categories='SAP.developers.vue.js,SAP.developers.vue.resource.js,sap.dev.custom.event.listing'}"></sly>

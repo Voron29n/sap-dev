@@ -26,7 +26,7 @@
                                     cq:showOnCreate="{Boolean}true"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
-                                    categories="[sap.dev.template.events.validation.icon.class,sap.dev.validation.max.multifield,sap.dev.template.events.validation.topic]"/>
+                                    categories="[sap.dev.validation.icon.class,sap.dev.validation.max.multifield,sap.dev.template.events.validation.topic]"/>
                             <include-client-edit
                                     cq:showOnCreate="{Boolean}false"
                                     jcr:primaryType="nt:unstructured"
@@ -41,10 +41,10 @@
                                             jcr:title="Event topics"
                                             sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
                                         <items jcr:primaryType="nt:unstructured">
-                                            <inputgroup
+                                            <icons
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/hyperlink"
-                                                    text="Please, check this link to select icon, then enter the icon number at textfield"
+                                                    text="Please, check this link to select icon, then enter the icon class at textfield"
                                                     href="https://fontawesome.com/icons"
                                                     rel="details"
                                                     target="_blank"/>
@@ -65,7 +65,7 @@
                                                     <items jcr:primaryType="nt:unstructured">
                                                         <icon-class
                                                                 cq:showOnCreate="{Boolean}true"
-                                                                validation="icon-number-field"
+                                                                validation="icon-class-field"
                                                                 jcr:primaryType="nt:unstructured"
                                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                 fieldLabel="Icon for topic"

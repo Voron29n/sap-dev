@@ -5,6 +5,9 @@ import com.day.cq.wcm.api.PageManager;
 import com.epam.sap.developers.core.entities.SimpleLink;
 import com.epam.sap.developers.core.entities.footer.FooterLinksWithTopic;
 import com.epam.sap.developers.core.models.Footer;
+import com.epam.sap.developers.core.models.bean.FooterTopicBean;
+import com.epam.sap.developers.core.models.bean.SimpleLinkBean;
+import com.epam.sap.developers.core.models.bean.SocialMediaBean;
 import com.epam.sap.developers.core.services.FooterService;
 import com.epam.sap.developers.core.utils.SapDevelopersPathUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -25,11 +28,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @Model(adaptables = SlingHttpServletRequest.class,
         adapters = {Footer.class},
-        resourceType = {FooterImpl.RESOURCE_TYPE},
+        resourceType = {FooterImpl.RESOURCE_TYPE_V_1},
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class FooterImpl implements Footer {
 
-    protected static final String RESOURCE_TYPE = "developers/components/totemplate/footer";
+    protected static final String RESOURCE_TYPE_V_1 = "developers/components/totemplate/footer";
+//    protected static final String RESOURCE_TYPE_V_2 = "developers/components/custom/footer";
 
     @ScriptVariable
     private Page currentPage;
@@ -56,6 +60,41 @@ public class FooterImpl implements Footer {
     @Override
     public List<FooterLinksWithTopic> getFooterLinksWithTopic() {
         return footerService.footerLinksWithTopic(contentOfPageWithFooterProperty);
+    }
+
+    @Override
+    public List<SimpleLinkBean> getFooterCopyrightList() {
+        return null;
+    }
+
+    @Override
+    public Map<Integer, List<SimpleLink>> getFooterCopyrightMap() {
+        return null;
+    }
+
+    @Override
+    public Map<Integer, List<SimpleLinkBean>> getFooterCopyrightMapVersion2() {
+        return null;
+    }
+
+    @Override
+    public List<FooterTopicBean> getFooterTopicBeanList() {
+        return null;
+    }
+
+    @Override
+    public List<SocialMediaBean> getSocialMediaBeanList() {
+        return null;
+    }
+
+    @Override
+    public String getFooterLinksStyle() {
+        return null;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return false;
     }
 
 

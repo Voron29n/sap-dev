@@ -1,7 +1,7 @@
 Vue.component("view-by", {
     props: {
         servletUrl: String,
-        hasContent: Boolean
+        pageWithEventsPath: String
     },
     data() {
         return {
@@ -27,6 +27,11 @@ Vue.component("view-by", {
         );
         this.$root.updateAfterServletUrlExist();
     },
+    computed: {
+            hasContent() {
+                return this.$props.pageWithEventsPath != null || this.$props.pageWithEventsPath != undefined;
+            },
+        },
     template: 
         '<div class="navbar" v-if="hasContent">' +
         '<div class="navbar-inner">' +

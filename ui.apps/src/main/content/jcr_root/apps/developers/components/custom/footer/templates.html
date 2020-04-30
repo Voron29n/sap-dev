@@ -1,0 +1,50 @@
+<template data-sly-template.footerLinks="${ @ topicList, columnStyle }">
+    <section class="footer-links" style="${columnStyle @context='styleString'}">
+        <div data-sly-list.topicItem="${topicList}" data-sly-unwrap>
+            <div class="link-item">
+                <h4>${topicItem.topicTitle}</h4>
+                <sly data-sly-call="${footerTopicItems @ topicItems=topicItem.topicItemsSimpleLink}"></sly>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template data-sly-template.footerTopicItems="${ @ topicItems }">
+    <ul class="unstyled">
+        <sly data-sly-list.simpleLink="${topicItems}">
+            <li>
+                <a href="${simpleLink.linkUrl}" target="${simpleLink.linkUrlTarget}">${simpleLink.linkTitle}</a>
+            </li>
+        </sly>
+    </ul>
+</template>
+
+<template data-sly-template.socialMedia="${ @ mediaList }">
+            <div class="social">
+                <sly data-sly-list.socialMediaItem="${mediaList}">
+                    <span data-sly-test="${socialMediaItem.iconNeed}" class="icons">
+                        <a href="${socialMediaItem.mediaUrl}" target="${socialMediaItem.mediaUrlTarget}">
+                            <i class="${socialMediaItem.mediaIcon}"></i>
+                        </a>
+                    </span>
+                    <span data-sly-test="${!socialMediaItem.iconNeed}">
+                        <a href="${socialMediaItem.mediaUrl}" target="${socialMediaItem.mediaUrlTarget}">${socialMediaItem.mediaTitle}</a>
+                    </span>
+                </sly>
+            </div>
+</template>
+
+<template data-sly-template.copyright="${@ copyrightMap}">
+    <div class="copyright">
+        <sly data-sly-list.footerCopyrightRowIndex="${copyrightMap}">
+            <div class="copyright-line"
+                 data-sly-list.footerCopyrightItem="${copyrightMap[footerCopyrightRowIndex]}">
+                                    <span>
+                                        <a href="${footerCopyrightItem.linkUrl}"
+                                           target="${footerCopyrightItem.linkUrlTarget}">${footerCopyrightItem.linkTitle}</a>
+                                    </span>
+            </div>
+        </sly>
+    </div>
+</template>
+
